@@ -1,5 +1,5 @@
-###create a folder in your computer
-###open cmd on this folder and add code below:
+### create a folder in your computer
+### open cmd on this folder and add code below:
 ### `git init` // this code is create an empty local repo
 
 
