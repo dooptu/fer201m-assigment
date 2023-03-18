@@ -5,6 +5,7 @@
 
 ### `git pull https://github.com/dooptu/fer201m-assigment.git` // pull source code from the
 open the project and code....
+#### In this project you must use: `npm install` to add ndoe_modules into project
 ### `git add .` // add your code to local repository
 ### `git commit -m"<!your commit here">`// commit your change
 ### `git push https://github.com/dooptu/fer201m-assigment.git` // push your code to
