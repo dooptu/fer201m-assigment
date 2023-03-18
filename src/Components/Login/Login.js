@@ -142,9 +142,7 @@ const Login = () => {
                 <div className="container-login">
 
                     <BackgroundCommon></BackgroundCommon>
-                    {/* <div className="container-background">
-                <img style={{position:"absolute",zIndex:"10", marginLeft:"-200px", marginTop:"110px"}} src="man.png"></img>
-            </div> */}
+                    
 
                     <div className="login-form">
                         <h2 style={{}}>User Log in</h2>

@@ -14,8 +14,7 @@ import './Payment.css'
 
 
 
-const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
-const PHONE_REGEX = /^[0-9]{10,12}$/;
+
 const PaymentInformation = () => {
     const reservation = JSON.parse(sessionStorage.getItem("reservation"));
     const obj = JSON.parse(sessionStorage.getItem("obj"));
@@ -24,6 +23,7 @@ const PaymentInformation = () => {
     const [username, setUsername] = useState(sessionStorage.getItem('username'));
     const [success, setSuccess] = useState(false);
     const usenavigate = useNavigate();
+
 
 
     useEffect(() => {
@@ -37,7 +37,10 @@ const PaymentInformation = () => {
                 setBookingInf(data);
                 console.log(data);
             })
-            .catch(error => console.error(error));
+            .catch(error => 
+                {
+                    console.error(error)
+                });
     }, []);
 
     const handleSubmit = async (e) => {
@@ -130,7 +133,6 @@ const PaymentInformation = () => {
         });
 
     }
-    console.log(obj.total_Of_Money)
 
     return (
         <div>
@@ -201,13 +203,13 @@ const PaymentInformation = () => {
                     <i>{bookingInf.type_Of_Vehicle}</i>
                     <br />
                     <span>Parking Zone</span>
-                    <i>{obj.id_Building}</i>
+                    <i>{bookingInf.id_Building}</i>
                     <br />
                     <span>Slot</span>
-                    <i>{obj.id_C_Slot}</i>
+                    <i>{bookingInf.id_C_Slot}</i>
                     <br />
                     <span>Duration</span>
-                    <i>{obj.startDate}, {obj.endDate}, {obj.startTime}, {obj.endTime}</i>
+                    <i>{bookingInf.startDate}, {bookingInf.endDate}, {bookingInf.startTime}, {bookingInf.endTime}</i>
                     <br />
                     <span>Created</span>
                     <i>{sessionStorage.getItem("datebook")}, {sessionStorage.getItem("timebook")}</i>
