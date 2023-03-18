@@ -86,7 +86,7 @@
   height: 570px;
   box-sizing: border-box;
   position: absolute;
-  z-index: 100;
+  z-index: 10;
   top: 9%;
   left: 10%;
   background: linear-gradient(0deg, rgb(255, 255, 255), rgb(255, 255, 255)), rgb(255, 255, 255);

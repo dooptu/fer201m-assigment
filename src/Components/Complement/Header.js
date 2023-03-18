@@ -1,10 +1,27 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Helmet from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faTimes, faInfoCircle, faUser } from "@fortawesome/free-solid-svg-icons";
 import './Complement.css'
+
+
+
+//-------------------------------------------------------------------------------
+
+import { AppBar, Button, Container, FormControl, InputLabel, Link, MenuItem, Select, Toolbar, Typography } from '@mui/material';
+import { Box, Stack } from '@mui/system';
+import './Khoi/Header/Header_Khoi.css';
+import { NavLink } from 'react-router-dom';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
+
+
+
+
+
+
+
 const Header = (props) => {
     const usenavigate = useNavigate();
     const [customerlist, listupdate] = useState(null);
@@ -12,79 +29,88 @@ const Header = (props) => {
     console.log(props.data)
     const logout = () => {
         sessionStorage.removeItem('username')
-        window.location.href = '/login';
-    }
+        window.location.href = '/';
+    };
     return (
+        <AppBar position='fixed'>
+            <Toolbar>
+                <Container style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <Box>
+                        <img style={{ width: '250px' }} src='../assets/img/logo.png' alt='Logo'></img>
+                    </Box>
+                    <Box m={'auto'}>
+                        <Stack direction={'row'} spacing={8} fontSize={15}>
 
-        <div className="header">
+                            <NavLink style={{ textDecoration: 'none' }} to="/"> <Link className='hoverLinkBottom' style={{ cursor: 'pointer' }}>Home</Link></NavLink>
+                            <NavLink style={{ textDecoration: 'none' }} to="/reservation">
+                                <Link className='hoverLinkBottom' style={{ cursor: 'pointer' }}>Reservation</Link>
 
-            <div className="logo">
-                <img src={'../assets/img/logo.png'}></img>
-            </div>
-            <ul class="nav justify-content-end nav-custom  ">
-                <li class="nav-item">
-                    <Link to={'/'}> <a class="nav-link" href="#">Home</a></Link>
-                </li>
-                <li class="nav-item">
-                    <Link to={'/Reservation'}> <a class="nav-link" href="#">Reservation</a></Link>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Slots</a>
-                </li>
-                <li class="nav-item">
-                    <Link to={'/Price'}><a class="nav-link" href="#">Price</a></Link>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Location</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">More</a>
-                    <ul class="dropdown-menu" style={{ position: 'absolute', zIndex: '100' }}>
-                        <li><a class="dropdown-item" href="#">Link 1</a></li>
-                        <li><a class="dropdown-item" href="#">Link 2</a></li>
-                        <li><a class="dropdown-item" href="#">Link 3</a></li>
-                    </ul>
-                </li>
-                {
-                    props.data === null || props.data === ''
-                        ? (<>
+                            </NavLink>
+                            <NavLink style={{ textDecoration: 'none' }} to="/slots">
+                                <Link className='hoverLinkBottom' style={{ cursor: 'pointer' }}>Slots</Link>
 
-                            <li class="nav-item not-hover" style={{ paddingTop: '5px', textDecoration: 'none' }}>
-                                <Link to={'/login'}><a>Login</a></Link>
-                            </li>
+                            </NavLink>
+                            <NavLink style={{ textDecoration: 'none' }} to="/price">
+                                <Link className='hoverLinkBottom' style={{ cursor: 'pointer' }}>Price</Link>
 
-                        </>
+                            </NavLink>
+                            <NavLink style={{ textDecoration: 'none' }} to="/location">
+                                <Link className='hoverLinkBottom' style={{ cursor: 'pointer' }}>Location</Link>
 
-
-                        )
-                        : (
-                            <>
-                                <li class="nav-item not-hover">
-                                    <span style={{ color: 'black' }} > <FontAwesomeIcon icon={faUser} style={{ paddingTop: '10px', color: 'black' }} /></span>
-
-                                </li>
-                                <li class="nav-item not-hover" style={{ paddingTop: '5px', textDecoration: 'none' }}>
-
-                                    <a onClick={logout} type="submit" style={{ border: 'none', backgroundColor: 'white', paddingTop: '5px' }} >Log out</a>
-
-
-                                </li>
-                            </>
-                        )
-                }
-
-
-
-            </ul>
-
-
-
-        </div>
+                            </NavLink>
+                            <NavLink style={{ textDecoration: 'none' }} to="/more">
+                                <Link className='hoverLinkBottom' style={{ cursor: 'pointer' }}>More</Link>
+                            </NavLink>
 
 
 
 
+                            {/* 
+                            Change login to userIcon if login success
+                            */}
+                            <NavLink className='account_user' style={{ textDecoration: 'none' }} to="/login" >
 
+                                {
+                                    props.data === null || props.data === ''
+                                        ? (<>
+                                            {/* <AccountCircleIcon className="account_userIcon" sx={{ color: '#4e6058' }} /> */}
+                                            <Link className='hoverLinkBottom' style={{ cursor: 'pointer' }}>Login</Link>
+
+                                        </>
+
+                                        )
+                                        : (
+                                            <>
+                                                <FormControl className='account_userIcon' sx={{ m: 1, minWidth: 120 }} size="small">
+                                                    <AccountCircleIcon className="account_userIcon" sx={{ color: '#4e6058' }} />
+
+                                                    <Select
+                                                        label="List"
+
+                                                    >
+
+                                                        <MenuItem>
+                                                            <NavLink style={{ textDecoration: 'none', color: '#2DC98A' }} to="/profile">
+                                                                Profile
+                                                            </NavLink>
+                                                        </MenuItem>
+                                                        <MenuItem >
+                                                            <NavLink style={{ textDecoration: 'none', color: '#2DC98A' }} onClick={logout}>
+                                                                Log out
+                                                            </NavLink>
+                                                        </MenuItem>
+                                                    </Select>
+                                                </FormControl>
+                                            </>
+                                        )
+                                }
+                            </NavLink>
+
+                        </Stack>
+                    </Box>
+                </Container>
+            </Toolbar>
+        </AppBar>
 
     );
 }
