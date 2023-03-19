@@ -33,6 +33,8 @@
   
   
   /*---------------------------HOMEPAGE------------------------------*/
+  /* 
+  
   
   .header {
     width: 100%;
@@ -101,6 +103,9 @@
     width: 100%;
     height: 100%;
   }
+  
+  */
+  
   
   .background {
     background-image: url('/public/assets/img/backgr7.jpg');

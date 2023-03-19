@@ -1,0 +1,48 @@
+.backgroundImage{
+    background-image: url(/public/assets/img/backgr7.jpg);
+    width: 100%;
+    padding-top: 100px;
+    background-color: rgb(255, 255, 255, 0.3);
+}
+
+.borderInput{
+    border: 1px solid black !important;
+    border-radius: 5px;
+}
+
+.css-pk11to-MuiInputBase-root-MuiFilledInput-root:before{
+    border-bottom: none !important;
+}
+
+
+.css-pk11to-MuiInputBase-root-MuiFilledInput-root:after{
+    border-bottom: none !important;
+
+}
+
+.css-jg8ynw-MuiFormLabel-root-MuiInputLabel-root.Mui-focused,
+.css-s2wj3-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
+    color: #2DC98A !important;
+}
+
+.btn--changeColor:hover{
+    background-color: rgba(17, 233, 150, 0.9) !important;
+}
+
+
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root{
+    width: 100%;
+    margin: 13px 0px;
+}
+.css-1xhypcz-MuiStack-root{
+    padding-top: 0 !important;
+}
+
+
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root{
+    margin-top: 5px !important;
+}
+.css-jg8ynw-MuiFormLabel-root-MuiInputLabel-root{
+    top:-15px !important
+}
+
