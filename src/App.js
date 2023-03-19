@@ -21,6 +21,13 @@ import AllBooking from './Components/Complement/Tam/Account/AllBooking';
 import ProfileSetting from './Components/Complement/Tam/Account/ProfileSetting';
 
 
+tomlenek
+// import Navbar from './components/Navbar';
+// import Home from './pages/Home';
+// import Payment from './pages/Payment';
+// import Employee from './pages/Employee';
+// import Profile from './pages/Profile';
+// import  Messages  from './pages/Messages';
 
 
 
@@ -59,6 +66,19 @@ function App() {
       </BrowserRouter >
 
     </div >
+
+tomlenek
+{/* <div className='App'>     
+      <Navbar />
+      <Routes>                 
+          <Route path='/' element={<Home />}></Route>
+          <Route exact path='/employee' element={<Employee />}></Route>
+          <Route exact path='/payment' element={<Payment />}></Route> 
+          <Route exact path='/profile' element={<Profile />}></Route>
+          <Route exact path='/messages' element={<Messages />}></Route>     
+      </Routes>    
+      </div> */}
+
   );
 }
 
