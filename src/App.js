@@ -14,7 +14,12 @@ import Banking from './Components/Payment/Banking';
 >>>>>>> f9287d0a3d11d9d46dc232a998df33cd802d29cb
 
 
-
+import AccountInformation from './Components/Complement/Tam/Account/AccountInformation';
+import HistoryBooking from './Components/Complement/Tam/Account/HistoryBooking';
+import CompletedBooking from './Components/Complement/Tam/Account/CompletedBooking';
+import CancelledBooking from './Components/Complement/Tam/Account/CancelledBooking';
+import AllBooking from './Components/Complement/Tam/Account/AllBooking';
+import ProfileSetting from './Components/Complement/Tam/Account/ProfileSetting';
 
 
 
@@ -41,11 +46,17 @@ function App() {
 
 
 >>>>>>> f9287d0a3d11d9d46dc232a998df33cd802d29cb
+<Route path='/Reservation' element = {<Reservation></Reservation>}></Route>
+          <Route path='/ReservationDetail' element={<ReservationDetail></ReservationDetail>}></Route>
+          <Route path='/PaymentInformation' element={<PaymentInformation></PaymentInformation>}></Route>
+          <Route path='/Banking' element={<Banking></Banking>}></Route>
+          <Route path='/ReservationComplete' element={<ReservationComplete></ReservationComplete>}></Route>
 
-        </Routes>
-      </BrowserRouter>
 
-    </div>
+        </Routes >
+      </BrowserRouter >
+
+    </div >
   );
 }
 
