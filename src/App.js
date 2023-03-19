@@ -3,15 +3,15 @@ import Login from './Components/Login/Login';
 import { ToastContainer } from 'react-toastify';
 import Register from './Components/Registration/Register';
 import Home from './Components/Main/Home';
-// <<<<<<< HEAD
-// import Main from './Components/Complement/Khoi/Main_Khoi';
-// =======
-// import Reservation from './Components/Payment/Reservation';
-// import ReservationDetail from './Components/Payment/ReservationDetail';
-// import PaymentInformation from './Components/Payment/PaymentInformation';
-// import ReservationComplete from './Components/Payment/ReservationComplete';
-// import Banking from './Components/Payment/Banking';
-// >>>>>>> f9287d0a3d11d9d46dc232a998df33cd802d29cb
+<<<<<<< HEAD
+import Main from './Components/Complement/Khoi/Main_Khoi';
+=======
+import Reservation from './Components/Payment/Reservation';
+import ReservationDetail from './Components/Payment/ReservationDetail';
+import PaymentInformation from './Components/Payment/PaymentInformation';
+import ReservationComplete from './Components/Payment/ReservationComplete';
+import Banking from './Components/Payment/Banking';
+>>>>>>> f9287d0a3d11d9d46dc232a998df33cd802d29cb
 
 import AccountInformation from './Components/Complement/Tam/Account/AccountInformation';
 import HistoryBooking from './Components/Complement/Tam/Account/HistoryBooking';
@@ -46,7 +46,7 @@ function App() {
           <Route path='/' element={<Home></Home>}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/register' element={<Register />}></Route>
-{/* <<<<<<< HEAD
+<<<<<<< HEAD
   <Route path='/Reservation' element={<Main />}></Route>
 =======
           <Route path='/Reservation' element = {<Reservation></Reservation>}></Route>
@@ -58,7 +58,7 @@ function App() {
 
 
 
->>>>>>> f9287d0a3d11d9d46dc232a998df33cd802d29cb */}
+>>>>>>> f9287d0a3d11d9d46dc232a998df33cd802d29cb
 
         </Routes >
       </BrowserRouter >
