@@ -13,7 +13,12 @@ import ReservationComplete from './Components/Payment/ReservationComplete';
 import Banking from './Components/Payment/Banking';
 >>>>>>> f9287d0a3d11d9d46dc232a998df33cd802d29cb
 
-
+import AccountInformation from './Components/Complement/Tam/Account/AccountInformation';
+import HistoryBooking from './Components/Complement/Tam/Account/HistoryBooking';
+import CompletedBooking from './Components/Complement/Tam/Account/CompletedBooking';
+import CancelledBooking from './Components/Complement/Tam/Account/CancelledBooking';
+import AllBooking from './Components/Complement/Tam/Account/AllBooking';
+import ProfileSetting from './Components/Complement/Tam/Account/ProfileSetting';
 
 
 
@@ -25,11 +30,19 @@ function App() {
       <ToastContainer theme='colored' position='top-right'></ToastContainer>
       <BrowserRouter>
         <Routes>
+          <Route path='/allbooking' element={<AllBooking />}></Route>
+          <Route path='/pastbooking' element={<HistoryBooking />}></Route>
+          <Route path='/completedbooking' element={<CompletedBooking />}></Route>
+          <Route path='/cancelledbooking' element={<CancelledBooking />}></Route>
+          <Route path='/profilesetting' element={<ProfileSetting />}></Route>
+          <Route path='/account' element={<AccountInformation />}></Route>
+
+
           <Route path='/' element={<Home></Home>}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/register' element={<Register />}></Route>
 <<<<<<< HEAD
-          <Route path='/Reservation' element={<Main />}></Route>
+  <Route path='/Reservation' element={<Main />}></Route>
 =======
           <Route path='/Reservation' element = {<Reservation></Reservation>}></Route>
           <Route path='/ReservationDetail' element={<ReservationDetail></ReservationDetail>}></Route>
@@ -42,10 +55,10 @@ function App() {
 
 >>>>>>> f9287d0a3d11d9d46dc232a998df33cd802d29cb
 
-        </Routes>
-      </BrowserRouter>
+        </Routes >
+      </BrowserRouter >
 
-    </div>
+    </div >
   );
 }
 
