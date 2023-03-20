@@ -1,5 +1,5 @@
 import React, { useEffect, useState, } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Helmet from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,6 +10,9 @@ import Slider from "../Complement/Slider";
 import './Main.css'
 import { ThemeProvider } from "@mui/material";
 import { customeTheme } from "../Complement/Khoi/customTheme_Khoi";
+import { Box, Button, Card, CardActions, CardContent, Container, Grid, Stack, Typography } from "@mui/material";
+import WatchLaterIcon from '@mui/icons-material/WatchLater';
+
 
 
 
@@ -28,14 +31,6 @@ const Home = () => {
     const [showPopupWarning, setShowPopupWarning] = useState(false);
     const [open, setOpen] = useState();
 
-
-
-
-
-
-
-
-
     useEffect(() => {
         setZone(zone);
 
@@ -50,164 +45,200 @@ const Home = () => {
     }
 
     return (
-        <ThemeProvider theme={customeTheme}>
 
-            <HelmetProvider>
-                <Helmet>
-                    <title>EParking</title>
-                </Helmet>
-                <Header data={username}></Header>
-                <Slider></Slider>
 
-                {/* -----------------------------zone-area-homepage----------------------- */}
-                <form onSubmit={handleSubmit}>
+        <HelmetProvider>
+            <Helmet>
+                <title>EParking</title>
+            </Helmet>
+            <Header data={username}></Header>
+            <Slider></Slider>
 
-                    <div className="row zone-area-homepage" >
+            {/* -----------------------------zone-area-homepage----------------------- */}
+            <form onSubmit={handleSubmit}>
 
-                        <div className="card col-lg-4" style={{ marginLeft: '10%' }}>
-                            <div className="card-header">
-                                <div>
-                                    <p style={{ display: 'block', margin: '0 auto', color: "#fff" }}>2.5$ / Day</p>
-                                </div>
-                                <span>Zone A</span>
-                            </div>
-                            <div className="card-body">
-                                <span>Content</span>
-                                <div>
-                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                                    <b style={{ marginLeft: '10px', fontSize: '12px' }}>Max, Duration: 4 hours</b>
-                                </div>
-                            </div>
-                            <div className="card-footer">
-                                <form onSubmit={handleSubmit}>
+                <Box sx={{ mt: '50px' }}>
+                    <Container>
+                        <Grid container spacing={8}>
+                            <Grid item xs={4}>
+                                <Card >
+                                    <CardContent>
+                                        <Typography position={'absolute'}>
+                                            2.5$ / Day
+                                        </Typography>
+                                        <Typography fontWeight={'bold'} variant="h6">
+                                            Zone A
+                                        </Typography>
+                                        <Typography gutterBottom mt={2.3} variant="body1" color='black'>
+                                            Content
+                                        </Typography>
+                                        <Typography gutterBottom variant="body2" color='black'>
+                                            <WatchLaterIcon /> Max, Duration: 4 hours
+                                        </Typography>
 
-                                    <Link to={'/ZoneDetail/A'}>
+                                    </CardContent>
+                                    <Stack direction={'row'}>
+                                        <Grid container>
+                                            <Grid item xs={4.5}>
+                                                <NavLink to={'/ZoneDetail/A'}>
+                                                    <CardActions>
+                                                        <Button fullWidth size="small">Details</Button>
+                                                    </CardActions>
+                                                </NavLink>
+                                            </Grid>
+                                            <Grid item xs={7.5}>
+                                                <CardActions>
+                                                    <NavLink  to={'/Reservation'} className='changeWidth'>
+                                                        <Button fullWidth size="small" onClick={e => setZone(e.target.value)} value='A'>Make Reservation</Button>
+                                                    </NavLink>
+                                                </CardActions>
+                                            </Grid>
+                                        </Grid>
 
-                                        <button style={{ color: "#fff", width: '25%' }}  ><span>Details</span></button>
-                                    </Link>
-                                    <Link to={'/Reservation'}>
-                                        <button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='A'><span>Make Reservation</span></button>
-                                    </Link>
-                                </form>
-                            </div>
+
+                                    </Stack>
+                                </Card>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Card>
+                                    <CardContent>
+                                        <Typography position={'absolute'}>
+                                            2.5$ / Day
+                                        </Typography>
+                                        <Typography fontWeight={'bold'} variant="h6">
+                                            Zone B
+                                        </Typography>
+                                        <Typography gutterBottom mt={2.3} variant="body1" color='black'>
+                                            Content
+                                        </Typography>
+                                        <Typography gutterBottom variant="body2" color='black'>
+                                            <WatchLaterIcon /> Max, Duration: 4 hours
+                                        </Typography>
+
+                                    </CardContent>
+                                    <Stack direction={'row'}>
+                                        <Grid container>
+                                        <Grid item xs={4.5}>
+                                                <NavLink to={'/ZoneDetail/B'}>
+                                                    <CardActions>
+                                                        <Button fullWidth size="small">Details</Button>
+                                                    </CardActions>
+                                                </NavLink>
+                                            </Grid>
+                                            <Grid item xs={7.5}>
+                                                <CardActions>
+                                                <NavLink  to={'/Reservation'} className='changeWidth'>
+                                                        <Button fullWidth size="small" onClick={e => setZone(e.target.value)} value='B'>Make Reservation</Button>
+                                                    </NavLink>
+                                                </CardActions>
+                                            </Grid>
+                                        </Grid>
+
+
+                                    </Stack>
+                                </Card>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Card>
+                                    <CardContent>
+                                        <Typography position={'absolute'}>
+                                            2.5$ / Day
+                                        </Typography>
+                                        <Typography fontWeight={'bold'} variant="h6">
+                                            Zone C
+                                        </Typography>
+                                        <Typography gutterBottom mt={2.3} variant="body1" color='black'>
+                                            Content
+                                        </Typography>
+                                        <Typography gutterBottom variant="body2" color='black'>
+                                            <WatchLaterIcon /> Max, Duration: 4 hours
+                                        </Typography>
+
+                                    </CardContent>
+                                    <Stack direction={'row'}>
+                                        <Grid container>
+                                        <Grid item xs={4.5}>
+                                                <NavLink to={'/ZoneDetail/C'}>
+                                                    <CardActions>
+                                                        <Button fullWidth size="small">Details</Button>
+                                                    </CardActions>
+                                                </NavLink>
+                                            </Grid>
+                                            <Grid item xs={7.5}>
+                                                <CardActions>
+                                                <NavLink  to={'/Reservation'} className='changeWidth'>
+                                                        <Button fullWidth size="small" onClick={e => setZone(e.target.value)} value='C'>Make Reservation</Button>
+                                                    </NavLink>
+                                                </CardActions>
+                                            </Grid>
+                                        </Grid>
+
+
+                                    </Stack>
+                                </Card>
+                            </Grid>
+                        </Grid>
+                    </Container>
+
+                </Box>
+                <div className="row zone-area-homepage" >
+
+                    {/* -----------------------------Entry/barrier system & QR code----------------------- */}
+
+                    <div class=" row barrier-homepage" >
+
+                        <div class=" col-lg-6" style={{ marginLeft: '10%' }}>
+                            <h2>
+                                Entry/barrier system & QR code
+                            </h2>
+                            <span>
+                                <h5 style={{ display: 'block', marginBottom: '30px' }}>You can integrate planyo with any automated entry system. Check out our already existing integration with Spartime.</h5>
+
+                                <h5>Your staff can use our mobile app and read the QR code upon entry for speeding up the arrivals.</h5>
+                            </span>
+
+                        </div>
+
+                        <div class="col-lg-6 img-gate-homepage">
+                            <button style={{ color: "#fff" }} type="submit"><span>Make Reservation</span></button>
                         </div>
 
 
-                        <div className="card col-lg-4">
-                            <div className="card-header">
-                                <div>
-                                    <p style={{ display: 'block', margin: '0 auto', color: "#fff" }}>2.5$ / Day</p>
-                                </div>
-                                <span>Zone B</span>
-                            </div>
-                            <div className="card-body">
-                                <span>Content</span>
-                                <div>
-                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                                    <b style={{ marginLeft: '10px', fontSize: '12px' }}>Max, Duration: 4 hours</b>
-                                </div>
-                            </div>
-                            <div className="card-footer">
-                                <form onSubmit={handleSubmit}>
 
-                                </form>
+                    </div>
 
-                                <Link to={'/ZoneDetail/B'}>
+                    {/* -----------------------------Entry/barrier system & QR code----------------------- */}
 
-                                    <button style={{ color: "#fff", width: '25%' }} onClick={() => setZone('B')} value="B"><span>Details</span></button>
-                                </Link>
-                                <Link to={'/Reservation'}>
-                                    <button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='B'><span>Make Reservation</span></button>
-                                </Link>
-                            </div>
+                    <div class=" row barrier-homepage" >
+
+                        <div class="col-lg-6 img-gate-homepage" style={{ marginLeft: '10%' }}>
+                            <button style={{ color: "#fff" }} type="submit"><span>Make Reservation</span></button>
                         </div>
 
+                        <div class=" col-lg-6" >
+                            <h2>
+                                Entry/barrier system & QR code
+                            </h2>
+                            <span>
+                                <h5 style={{ display: 'block', marginBottom: '30px' }}>You can integrate planyo with any automated entry system. Check out our already existing integration with Spartime.</h5>
 
-                        <div className="card col-lg-4">
-                            <div className="card-header">
-                                <div>
-                                    <p style={{ display: 'block', margin: '0 auto', color: "#fff" }}>2.5$ / Day</p>
-                                </div>
-                                <span>Zone C</span>
-                            </div>
-                            <div className="card-body">
-                                <span>Content</span>
-                                <div>
-                                    <FontAwesomeIcon icon={faClock}></FontAwesomeIcon>
-                                    <b style={{ marginLeft: '10px', fontSize: '12px' }}>Max, Duration: 4 hours</b>
-                                </div>
-                            </div>
-                            <div className="card-footer">
-                                <form onSubmit={handleSubmit}>
-
-                                </form>
-                                <Link to={'/ZoneDetail/C'}>
-
-                                    <button style={{ color: "#fff", width: '25%' }} onClick={() => setZone('C')} value="C"><span>Details</span></button>
-                                </Link>
-                                <Link to={'/Reservation'}>
-                                    <button style={{ color: "#fff" }} onClick={e => setZone(e.target.value)} value='C'><span>Make Reservation</span></button>
-                                </Link>
-                            </div>
-                        </div>
-
-                        {/* -----------------------------Entry/barrier system & QR code----------------------- */}
-
-                        <div class=" row barrier-homepage" >
-
-                            <div class=" col-lg-6" style={{ marginLeft: '10%' }}>
-                                <h2>
-                                    Entry/barrier system & QR code
-                                </h2>
-                                <span>
-                                    <h5 style={{ display: 'block', marginBottom: '30px' }}>You can integrate planyo with any automated entry system. Check out our already existing integration with Spartime.</h5>
-
-                                    <h5>Your staff can use our mobile app and read the QR code upon entry for speeding up the arrivals.</h5>
-                                </span>
-
-                            </div>
-
-                            <div class="col-lg-6 img-gate-homepage">
-                                <button style={{ color: "#fff" }} type="submit"><span>Make Reservation</span></button>
-                            </div>
-
-
-
-                        </div>
-
-                        {/* -----------------------------Entry/barrier system & QR code----------------------- */}
-
-                        <div class=" row barrier-homepage" >
-
-                            <div class="col-lg-6 img-gate-homepage" style={{ marginLeft: '10%' }}>
-                                <button style={{ color: "#fff" }} type="submit"><span>Make Reservation</span></button>
-                            </div>
-
-                            <div class=" col-lg-6" >
-                                <h2>
-                                    Entry/barrier system & QR code
-                                </h2>
-                                <span>
-                                    <h5 style={{ display: 'block', marginBottom: '30px' }}>You can integrate planyo with any automated entry system. Check out our already existing integration with Spartime.</h5>
-
-                                    <h5>Your staff can use our mobile app and read the QR code upon entry for speeding up the arrivals.</h5>
-                                </span>
-                            </div>
-
+                                <h5>Your staff can use our mobile app and read the QR code upon entry for speeding up the arrivals.</h5>
+                            </span>
                         </div>
 
                     </div>
 
-                </form>
+                </div>
 
-                <Footer></Footer>
+            </form>
+
+            <Footer></Footer>
 
 
 
 
-            </HelmetProvider>
+        </HelmetProvider>
 
-        </ThemeProvider>
 
     );
 }

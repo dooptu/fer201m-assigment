@@ -1,4 +1,4 @@
-import { Box, Button, Container, FormControl, Grid, InputLabel, MenuItem, OutlinedInput, Select, TextField, Typography } from "@mui/material";
+import { Box, Button, Card, CardActions, CardContent, Container, FormControl, Grid, InputLabel, MenuItem, OutlinedInput, Select, TextField, Typography } from "@mui/material";
 import { display } from "@mui/system";
 import React, { useState, useEffect } from "react";
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
@@ -48,7 +48,7 @@ const names = [
 
 
 export default function Body() {
-    const[startDate,setStartDate] = useState('');
+    const [startDate, setStartDate] = useState('');
     // const [value, setValue] = useState('');
     const [endDate, setEndDate] = useState();
     const [startTime, setStartTime] = useState('');
@@ -86,95 +86,101 @@ export default function Body() {
         window.location.href = '/Reservation'
     }
     return (
-        <div className="backgroundImage">
-            <Container>
-                <Grid container spacing={3}>
-                    <Grid item xs={4} pb={5}>
-                        <Box sx={{ backgroundColor: 'white', borderRadius: '10px' }}>
-                            <Typography p={'24px 0px 0px 24px'} variant="h4" >
-                                BOOKING NOW
-                            </Typography>
-                            <Box onSubmit={handleSubmit} component="form" p={3}>
-                                <FormControl fullWidth>
-                                    <LocalizationProvider style={{ width: '100%' }} dateAdapter={AdapterDayjs}>
-                                        <DemoContainer components={['DatePicker']}>
-                                            <DatePicker value={startDate} onChange={(newValue) => setStartDate(newValue)} showDaysOutsideCurrentMonth label="Start date" />
-                                        </DemoContainer>
-                                    </LocalizationProvider>
-                                </FormControl>
+
+        <Box>
+            {/* Booking area */}
+            <Box className="backgroundImage">
+                <Container>
+                    <Grid container spacing={3}>
+                        <Grid item xs={4} pb={5}>
+                            <Box sx={{ backgroundColor: 'white', borderRadius: '10px' }}>
+                                <Typography p={'24px 0px 0px 24px'} variant="h4" >
+                                    BOOKING NOW
+                                </Typography>
+                                <Box onSubmit={handleSubmit} component="form" p={3}>
+                                    <FormControl fullWidth>
+                                        <LocalizationProvider style={{ width: '100%' }} dateAdapter={AdapterDayjs}>
+                                            <DemoContainer components={['DatePicker']}>
+                                                <DatePicker value={startDate} onChange={(newValue) => setStartDate(newValue)} showDaysOutsideCurrentMonth label="Start date" />
+                                            </DemoContainer>
+                                        </LocalizationProvider>
+                                    </FormControl>
 
 
-                                <FormControl variant="filled" sx={{ borderRadius: '5px', m: '15px 0px 10px 0px' }} fullWidth>
-                                    <InputLabel id="demo-multiple-name-label">Start time</InputLabel>
-                                    <Select
-                                        id="demo-multiple-name"
-                                        value={startTime}
-                                        onChange={(e) => setStartTime(e.target.value)}
-                                        input={<OutlinedInput label="Start time" />}
-                                        MenuProps={MenuProps}
-                                    >
+                                    <FormControl variant="filled" sx={{ borderRadius: '5px', m: '15px 0px 10px 0px' }} fullWidth>
+                                        <InputLabel id="demo-multiple-name-label">Start time</InputLabel>
+                                        <Select
+                                            id="demo-multiple-name"
+                                            value={startTime}
+                                            onChange={(e) => setStartTime(e.target.value)}
+                                            input={<OutlinedInput label="Start time" />}
+                                            MenuProps={MenuProps}
+                                        >
 
 
 
-                                        {names.map((name) => (
-                                            <MenuItem
-                                                value={name}
-                                            >
-                                                {name}
-                                            </MenuItem>
-                                        ))}
-                                    </Select>
-                                </FormControl>
+                                            {names.map((name) => (
+                                                <MenuItem
+                                                    value={name}
+                                                >
+                                                    {name}
+                                                </MenuItem>
+                                            ))}
+                                        </Select>
+                                    </FormControl>
 
-                                <FormControl fullWidth>
-                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                        <DemoContainer components={['DatePicker']}>
-                                            <DatePicker value={endDate} onChange={(newValue) => setEndDate(newValue)} showDaysOutsideCurrentMonth label="End date " />
-                                        </DemoContainer>
-                                    </LocalizationProvider>
-                                </FormControl>
+                                    <FormControl fullWidth>
+                                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                            <DemoContainer components={['DatePicker']}>
+                                                <DatePicker value={endDate} onChange={(newValue) => setEndDate(newValue)} showDaysOutsideCurrentMonth label="End date " />
+                                            </DemoContainer>
+                                        </LocalizationProvider>
+                                    </FormControl>
 
-                                <FormControl variant="filled" sx={{ borderRadius: '5px', m: '15px 0px 10px 0px' }} fullWidth>
-                                    <InputLabel id="demo-multiple-name-label">End time</InputLabel>
-                                    <Select
-                                        id="demo-multiple-name"
-                                        value={endTime}
-                                        onChange={(e) => setEndTime(e.target.value)}
-                                        input={<OutlinedInput label="End time" />}
-                                        MenuProps={MenuProps}
-                                    >
-                                        {names.map((name) => (
-                                            <MenuItem
-                                                value={name}
-                                            >
-                                                {name}
-                                            </MenuItem>
-                                        ))}
-                                    </Select>
-                                </FormControl>
-                                <Button type="submit" sx={{ m: '40px 0px 20px 0px' }} className="btn--changeColor" color="secondary" fullWidth variant="contained">Booking</Button>
+                                    <FormControl variant="filled" sx={{ borderRadius: '5px', m: '15px 0px 10px 0px' }} fullWidth>
+                                        <InputLabel id="demo-multiple-name-label">End time</InputLabel>
+                                        <Select
+                                            id="demo-multiple-name"
+                                            value={endTime}
+                                            onChange={(e) => setEndTime(e.target.value)}
+                                            input={<OutlinedInput label="End time" />}
+                                            MenuProps={MenuProps}
+                                        >
+                                            {names.map((name) => (
+                                                <MenuItem
+                                                    value={name}
+                                                >
+                                                    {name}
+                                                </MenuItem>
+                                            ))}
+                                        </Select>
+                                    </FormControl>
+                                    <Button type="submit" sx={{ m: '40px 0px 20px 0px' }} className="btn--changeColor" color="secondary" fullWidth variant="contained">Booking</Button>
+                                </Box>
                             </Box>
-                        </Box>
+                        </Grid>
+                        <Grid item xs={8}>
+                            <Box p={'120px 30px 0px 30px'}>
+                                <Typography color={'primary'} align="justify" variant="h4" gutterBottom>
+                                    Booking Vehicle
+                                    <p style={{ fontSize: '80px', display: 'inline-block', border: '10px solid #2DC98A', padding: '6px' }}>P</p>
+
+                                    arking Area
+                                </Typography>
+                                <Typography mt={4} color={'primary'} align="justify" variant="h6">The system provide the easily service to book a slot for your
+                                    vehicle in my parking area and pay the monthly invoice
+                                    if you is a resident.</Typography>
+
+                            </Box>
+
+
+                        </Grid>
                     </Grid>
-                    <Grid item xs={8}>
-                        <Box p={'120px 30px 0px 30px'}>
-                            <Typography color={'primary'} align="justify" variant="h4" gutterBottom>
-                                Booking Vehicle
-                                <p style={{ fontSize: '80px', display: 'inline-block', border: '10px solid #2DC98A', padding: '6px' }}>P</p>
 
-                                arking Area
-                            </Typography>
-                            <Typography mt={4} color={'primary'} align="justify" variant="h6">The system provide the easily service to book a slot for your
-                                vehicle in my parking area and pay the monthly invoice
-                                if you is a resident.</Typography>
+                </Container>
+            </Box>
 
-                        </Box>
+        </Box>
 
-
-                    </Grid>
-                </Grid>
-
-            </Container>
-        </div>
     );
 }
