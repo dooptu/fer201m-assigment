@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Helmet from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import './Complement.css'
+import './Complements.css'
 
 
 
