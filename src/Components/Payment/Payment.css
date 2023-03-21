@@ -9,7 +9,7 @@
 /* --------------------------------------RESERVATION--------------------------------- */
 
 .body-reservation {
-  background-image: url('../../../public/assets/img/building-thumbnail.png');
+  background-image: url('/public/assets/img/building-thumbnail.png');
   background-size: 80%;
   background-position: center;
   background-attachment: fixed;
