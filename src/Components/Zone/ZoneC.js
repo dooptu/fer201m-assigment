@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './Zone.css';
-import {url_api} from "../../API/api";
+import {url_api} from "../../API/api"
 import { faCarRear, faRoad, faExit, faBicycle, faMotorcycle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function ZoneB() {
+function ZoneC() {
     const [shells, setShells] = useState([]);
     const [shellsR, setShellsR] = useState([]);
     useEffect(() => {
-        fetch(url_api+'/present_slot/findAll/B')
+        fetch(url_api+'/present_slot/findAll/C')
             .then(response => response.json())
             .then((data) => {
                 setShells(data)
@@ -17,7 +17,6 @@ function ZoneB() {
             })
             .catch(error => console.error(error));
     }, []);
-    
     const residentSlot = shells.filter(slot => slot.id_slot.startsWith('R'));
     const customerSlot = shells.filter(slot => slot.id_slot.startsWith('C'));
     return (
@@ -25,14 +24,14 @@ function ZoneB() {
             <form onSubmit={'handleSubmit'}>
                 <div className="zone-detail">
                     <p style={{ float: 'left' }}>
-                        
                         <Link style={{ float: 'left', marginRight: '20px' }} to={'/ZoneDetail/A'}>
                             <h5>ZONE A</h5>
                         </Link>
-                        <h5 style={{ float: 'left', marginRight: '20px' }}>ZONE B</h5>
-                        <Link style={{ float: 'left', marginRight: '20px' }} to={'/ZoneDetail/C'}>
-                            <h5>ZONE C</h5>
-                        </Link></p>
+                        <Link style={{ float: 'left', marginRight: '20px' }} to={'/ZoneDetail/B'}>
+                            <h5>ZONE B</h5>
+                        </Link>
+                        <h5 style={{ float: 'left', marginRight: '20px' }}>ZONE C</h5>
+                    </p>
                     <p>
                         <h5>DESCRIPTION</h5>
                         <span>P1 is the nearest zone to the terminal (100m distance).</span>
@@ -112,4 +111,4 @@ function ZoneB() {
         </div>
     );
 }
-export default ZoneB;
+export default ZoneC;
