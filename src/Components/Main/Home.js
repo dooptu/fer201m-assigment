@@ -1,25 +1,29 @@
 import React, { useEffect, useState, } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Helmet from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
-import Header from "../Complement/Header";
-import Footer from "../Complement/Footer";
-import Slider from "../Complement/Slider";
+import { Carousel, Card, Stack, Button } from "react-bootstrap";
+import Header from "../Complements/Header";
+import Footer from "../Complements/Footer";
+import Slider from "../Complements/Slider";
 import './Main.css'
-import { ThemeProvider } from "@mui/material";
-import { customeTheme } from "../Complement/Khoi/customTheme_Khoi";
-import { Box, Button, Card, CardActions, CardContent, Container, Grid, Stack, Typography } from "@mui/material";
-import WatchLaterIcon from '@mui/icons-material/WatchLater';
+import PopUpWarning from './PopUp/PopUpWarning';
+import { url_api } from "../../API/api";
 
-
-
-
-const URL_WARNING_C = '';
-const URL_WARNING_R = '';
+const URL_WARNING_C = url_api + '/expired/checkExpiredC/';
+const URL_WARNING_R = url_api + '/expired/checkExpiredR/';
 
 const Home = () => {
+    const reviews = [
+        { _id: 1, text: "abc" },
+        { _id: 2, text: "def" },
+        { _id: 3, text: "ghi" },
+        { _id: 4, text: "jkl" },
+
+    ];
+
     const [zone, setZone] = useState('A');
 
     const [username, setUsername] = useState(sessionStorage.getItem('username'));
@@ -30,6 +34,67 @@ const Home = () => {
 
     const [showPopupWarning, setShowPopupWarning] = useState(false);
     const [open, setOpen] = useState();
+
+    useEffect(() => {
+        const currentDate = new Date(Date.now());
+        const formattedDate = currentDate.toISOString().substr(0, 10);
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
+        const currentTime = `${hours}a${minutes}a${seconds}`;
+        if (role === 'C') {
+            set_URL_WARNING(URL_WARNING_C + id + '?time=' + currentTime);
+            console.log(URL_WARNING_C + id + '?time=' + currentTime)
+        } else if (role === 'R') {
+            set_URL_WARNING(URL_WARNING_R + id + '?time=' + currentTime);
+            console.log(URL_WARNING_R + id + '?time=' + currentTime)
+        }
+
+        fetch(URL_WARNING, {
+            method: "GET",
+            headers: {
+                "Access-Control-Allow-Origin": URL_WARNING,
+                Accept: "*/*",
+                "Content-Type": "application/json",
+                "X-Requested-With": "XMLHttpRequest",
+                "Cache-Control": "no-cache",
+            },
+
+        })
+            .then((res) => {
+                setOpen(false)
+                console.log('open: ' + open)
+                res.json()
+            })
+            .then((data) => {
+
+                setObj(data);
+                console.log('data: ' + data)
+                setOpen(true)
+                console.log('open + : ' + open)
+            })
+            .catch((err) => {
+                console.error(err);
+
+            });
+
+        if (obj === undefined) setOpen(false)
+        else setOpen(true)
+
+    }, []);
+    console.log('data:---' + obj)
+
+
+
+    useEffect(() => {
+        if (open) {
+            togglePopupWarning()
+            console.log('open')
+        } else console.log('dont');
+
+    }, [])
+
 
     useEffect(() => {
         setZone(zone);
@@ -88,7 +153,7 @@ const Home = () => {
                                             </Grid>
                                             <Grid item xs={7.5}>
                                                 <CardActions>
-                                                    <NavLink  to={'/Reservation'} className='changeWidth'>
+                                                    <NavLink to={'/Reservation'} className='changeWidth'>
                                                         <Button fullWidth size="small" onClick={e => setZone(e.target.value)} value='A'>Make Reservation</Button>
                                                     </NavLink>
                                                 </CardActions>
@@ -118,7 +183,7 @@ const Home = () => {
                                     </CardContent>
                                     <Stack direction={'row'}>
                                         <Grid container>
-                                        <Grid item xs={4.5}>
+                                            <Grid item xs={4.5}>
                                                 <NavLink to={'/ZoneDetail/B'}>
                                                     <CardActions>
                                                         <Button fullWidth size="small">Details</Button>
@@ -127,7 +192,7 @@ const Home = () => {
                                             </Grid>
                                             <Grid item xs={7.5}>
                                                 <CardActions>
-                                                <NavLink  to={'/Reservation'} className='changeWidth'>
+                                                    <NavLink to={'/Reservation'} className='changeWidth'>
                                                         <Button fullWidth size="small" onClick={e => setZone(e.target.value)} value='B'>Make Reservation</Button>
                                                     </NavLink>
                                                 </CardActions>
@@ -157,7 +222,7 @@ const Home = () => {
                                     </CardContent>
                                     <Stack direction={'row'}>
                                         <Grid container>
-                                        <Grid item xs={4.5}>
+                                            <Grid item xs={4.5}>
                                                 <NavLink to={'/ZoneDetail/C'}>
                                                     <CardActions>
                                                         <Button fullWidth size="small">Details</Button>
@@ -166,7 +231,7 @@ const Home = () => {
                                             </Grid>
                                             <Grid item xs={7.5}>
                                                 <CardActions>
-                                                <NavLink  to={'/Reservation'} className='changeWidth'>
+                                                    <NavLink to={'/Reservation'} className='changeWidth'>
                                                         <Button fullWidth size="small" onClick={e => setZone(e.target.value)} value='C'>Make Reservation</Button>
                                                     </NavLink>
                                                 </CardActions>

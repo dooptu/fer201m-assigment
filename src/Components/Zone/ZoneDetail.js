@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import './Zone.css'
 
-import Slider from "../Complement/Slider"
-import Header from "../Complement/Header";
-import Footer from "../Complement/Footer";
+import Slider from "../Complements/Slider"
+import Header from "../Complements/Header";
+import Footer from "../Complements/Footer";
 
 import ZoneA from "./ZoneA";
 import ZoneB from "./ZoneB";

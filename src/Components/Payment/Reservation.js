@@ -5,16 +5,16 @@ import Helmet from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes, faInfoCircle, faUser, faClock, faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import Slider from "../Complement/Slider"
-import Header from "../Complement/Header";
-import Footer from "../Complement/Footer";
+import Slider from "../Complements/Slider"
+import Header from "../Complements/Header";
+import Footer from "../Complements/Footer";
 import ReservationDetail from "./ReservationDetail";
 import PaymentInformation from "./PaymentInformation";
 import ReservationComplete from "./ReservationComplete";
 import './Payment.css'
 import { Box, Button, Card, CardActions, CardContent, Container, Grid, Stack, Typography } from "@mui/material";
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
-import '../Complement/Khoi/Body/Body.css'
+import '../Complements/Khoi/Body/Body.css'
 
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;

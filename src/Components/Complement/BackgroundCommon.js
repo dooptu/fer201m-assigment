@@ -1,5 +1,5 @@
 import { Component } from "react";
-import './Complement.css'
+import './Complements.css'
 class BackgroundCommon extends Component {
     render(){
     return(
