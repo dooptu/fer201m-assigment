@@ -90,9 +90,23 @@ const Header = (props) => {
                             )
                     }
                 </div>
-                
+
             </div>
-            
+            <Nav className="nav-item-responsive">
+                <NavDropdown className="icon-nav-item-responsive" title={<FontAwesomeIcon icon={faBars}></FontAwesomeIcon>}>
+                    <NavDropdown.Item style={{ width: '350px', marginLeft: '10' }}><Link to={'/'}> <a class="nav-link" href="#">Home</a></Link></NavDropdown.Item>
+                    <NavDropdown.Item><Link to={'/Reservation'}> <a class="nav-link" href="#">Reservation</a></Link></NavDropdown.Item>
+                    <NavDropdown.Item><Link to={'/Service'}><a class="nav-link" href="#">Services</a></Link></NavDropdown.Item>
+                    <NavDropdown.Item><Link to={'/Price'}><a class="nav-link" href="#">Price</a></Link></NavDropdown.Item>
+                    <NavDropdown.Item><Link to={'/News'}><a class="nav-link" href="#">News</a></Link></NavDropdown.Item>
+                    <NavDropdown.Item><a class="nav-link" href="#">Location</a></NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item ><a onClick={logout} type="submit">Log out</a></NavDropdown.Item>
+                </NavDropdown>
+                <div className="logo">
+                    <img src={'../assets/img/logo.png'}></img>
+                </div>
+            </Nav>
         </div>
     );
 }
