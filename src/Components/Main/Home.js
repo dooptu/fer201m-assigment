@@ -116,7 +116,7 @@ const Home = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        
         sessionStorage.setItem("zone", zone);
 
         // window.location.href = '/Reservation';

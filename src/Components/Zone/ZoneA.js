@@ -9,24 +9,29 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import ReactJsAlert from "reactjs-alert"
 
 
-function ZoneA(){
+function ZoneA() {
     const [shells, setShells] = useState([]);
     const [shellsR, setShellsR] = useState([]);
-    useEffect(() =>{
-        fetch(url_api + '/present_slot/findAll/A') 
-        .then(response => response.json())
-        .then((data) => {
-            setShells(data)
-            // console.log(data)
-        })
-        .catch(error => console.error(error));
+    
+    useEffect(() => {
+        fetch(url_api + '/present_slot/findAll/A')
+            .then(response => response.json())
+            .then((data) => {
+                setShells(data)
+                
+                // console.log(data)
+            })
+
+            .catch(error => console.error(error));
     }, []);
     const residentSlot = shells.filter(slot => slot.id_slot.startsWith('R'));
     const customerSlot = shells.filter(slot => slot.id_slot.startsWith('C'));
     return (
         <div>
+            
             <form onSubmit={'handleSubmit'}>
                 <div className="zone-detail">
                     <p style={{ float: 'left' }}>

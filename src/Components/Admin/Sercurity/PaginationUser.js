@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import { url_api } from "../../../API/api";
 import PopUpEditUser from './Popup/PopUpEditUser';
 import { toast } from "react-toastify";
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 const URL_RESIDENT = url_api+"/security/updateCustomer_Resident?idUser=";
+
 
 function PaginationUser(props) {
     const role = props.role;
@@ -10,7 +16,7 @@ function PaginationUser(props) {
     const pageSize = props.pageSize || 10; // default to 10 if not provided
     const totalPages = Math.ceil(props.data.length / pageSize);
     const [idUser, setIdUser] = useState('');
-    const [role1, setRole1] = useState(role) 
+    const [role1, seTableRowole1] = useState(role) 
 
     console.log(role1)
 
@@ -25,7 +31,7 @@ function PaginationUser(props) {
     }
 
     const handleClick = (event, page) => {
-        event.preventDefault();
+        event.prevenTableCellefault();
         setCurrentPage(page);
     };
 
@@ -49,11 +55,11 @@ function PaginationUser(props) {
             fetch(url_api + '/security/BanOrUnBanCustomer/' + id, {
                 method: 'PUT',
                 header: {
-                    "Access-Control-Allow-Origin": url_api + 'BanOrUnBanCustomer/' + id ,
+                    "Access-ConTableRowol-Allow-Origin": url_api + 'BanOrUnBanCustomer/' + id ,
                     "Accept": "*/*",
                     "Content-Type": "application/text",
                     "X-Requested-With": "XMLHttpRequest",
-                    "Cache-Control": "no-cache",
+                    "Cache-ConTableRowol": "no-cache",
                 },
                 
             }).then((res) => {
@@ -73,29 +79,29 @@ function PaginationUser(props) {
         const end = start + pageSize;
         return props.data.slice(start, end).map((item, index) => (
             
-            <tr key={start + index}>
-                <td>{start + index + 1}</td>
-                <td>{item.id}</td>
-                <td>{item.fullname}</td>
-                <td>{item.dateofbirth}</td>
-                <td>{item.gender ? "Male" : "Female"}</td>
-                <td>{item.phone}</td>
-                <td>{item.email}</td>
-                <td style={{ color: item.status_Account === false ? '#118408' : '#E23F31', fontWeight: 'bold' }}>
-                    <a style={{textDecoration:'underline', cursor:'pointer'}} onClick={() => {handleChangeStatus(item.id)}}>
+            <TableRow key={start + index}>
+                <TableCell>{start + index + 1}</TableCell>
+                <TableCell>{item.id}</TableCell>
+                <TableCell>{item.fullname}</TableCell>
+                <TableCell>{item.dateofbirth}</TableCell>
+                <TableCell>{item.gender ? "Male" : "Female"}</TableCell>
+                <TableCell>{item.phone}</TableCell>
+                <TableCell>{item.email}</TableCell>
+                <TableCell style={{ color: item.status_Account === false ? '#118408' : '#E23F31', fontWeight: 'bold' }}>
+                    <a style={{texTableCellecoration:'underline', cursor:'pointer'}} onClick={() => {handleChangeStatus(item.id)}}>
 
                         {item.status_Account === false ? 'Active' :  'Banned' }
                     </a>
-                </td>
-                <td>
+                </TableCell>
+                <TableCell>
                     <form onSubmit={''}>
                         <button onClick={() => { togglePopupCreateRes(); set(item.id) }} style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', width: '55px', borderRadius: '2px' }}>Edit</button>
 
                     </form>
-                </td>
+                </TableCell>
                 <PopUpEditUser idUser={idUser} handleClose={togglePopupCreateRes} show={showPopupCreateRes} role='User' url={URL_RESIDENT}></PopUpEditUser>
                 <>{console.log(item.status_Account)}</>
-            </tr>
+            </TableRow>
 
         ));
     };
@@ -103,7 +109,7 @@ function PaginationUser(props) {
     return (
         <>
             <tbody>{renderListItems()}</tbody>
-            <tr className="pagination" style={{ float: 'right' }}>{renderPageNumbers()}</tr>
+            <TableRow className="pagination" style={{ float: 'right' }}>{renderPageNumbers()}</TableRow>
 
         </>
     );

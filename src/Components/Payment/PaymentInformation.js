@@ -96,7 +96,7 @@ const PaymentInformation = () => {
     const handleCancel = async (e) => {
         e.preventDefault();
         
-        alert('Do you want to Cancel your Reservation? You will be banned after canceling more 5 times')
+        window.confirm('Do you want to Cancel your Reservation? You will be banned after canceling more 5 times')
         const id_booking = bookingInf.id_Booking;
         const id_Customer = username;
         const id_Building = obj.id_Building;
