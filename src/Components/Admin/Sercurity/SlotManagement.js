@@ -10,6 +10,11 @@ import { faCarRear, faRoad, faExit, faBicycle, faMotorcycle } from "@fortawesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import AdminHeader from '../AdminPageHeader';
 import { url_api } from "../../../API/api";
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
 
 
 const URL = url_api + "/present_slot/findAll/";
@@ -30,7 +35,7 @@ const SlotManagement = () => {
     const [idSlot, setIdSlot] = useState('');
     const [inforResSlot, setInforResSlot] = useState([]);
     const [URL_INFOR, setURL_INFOR] = useState('');
-    const [role, setRole] = useState('');
+    const [role, seTableRowole] = useState('');
     const [showPopupInfor, setShowPopupInfor] = useState(false);
     const [showPopupCreateRes, setShowPopupCreateRes] = useState(false);
 
@@ -50,7 +55,7 @@ const SlotManagement = () => {
             .then(response => response.json())
             .then((data) => {
                 setInforResSlot(data)
-                setRole(role)
+                seTableRowole(role)
                 console.log(url + building + '&id_' + role + '_Slot=' + id)
                 console.log(data)
             })
@@ -130,11 +135,11 @@ const SlotManagement = () => {
 
             <div class="table-responsive  align-items-center justify-content-center">
                 <div>Resident Area</div>
-                <table class="table border" style={{ boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px' }}>
-                    <tbody>
-                        <tr class="border" style={{ boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px' }}>
+                <TableContainer class="table border" style={{ boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px' }}>
+                    <TableBody>
+                        <TableRow class="border" style={{ boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px' }}>
                             {residentSlot.slice(0, 10).map(shell => (
-                                <td
+                                <TableCell
                                     onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot, 'R', URL_Infor_R_Slot) : massageSlot}
                                     className="border" key={shell.id}
                                     style={{ boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}
@@ -142,12 +147,12 @@ const SlotManagement = () => {
                                     <FontAwesomeIcon style={{ fontSize: '16px', paddingRight: '30px' }} icon={faCarRear}></FontAwesomeIcon>
 
                                     {shell.id_slot}
-                                </td>
+                                </TableCell>
                             ))}
-                        </tr>
-                        <tr class="border">
+                        </TableRow>
+                        <TableRow class="border">
                             {residentSlot.slice(10, 20).map(shell => (
-                                <td
+                                <TableCell
                                     onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot, 'R', URL_Infor_R_Slot) : massageSlot}
                                     className="border" key={shell.id}
                                     style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}
@@ -155,12 +160,12 @@ const SlotManagement = () => {
                                     <FontAwesomeIcon style={{ fontSize: '16px', paddingRight: '30px' }} icon={faBicycle}></FontAwesomeIcon>
 
                                     {shell.id_slot}
-                                </td>
+                                </TableCell>
                             ))}
-                        </tr>
-                        <tr class="border">
+                        </TableRow>
+                        <TableRow class="border">
                             {residentSlot.slice(20, 30).map(shell => (
-                                <td
+                                <TableCell
                                     onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot, 'R', URL_Infor_R_Slot) : massageSlot}
                                     className="border" key={shell.id}
                                     style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}
@@ -168,19 +173,19 @@ const SlotManagement = () => {
                                     <FontAwesomeIcon style={{ fontSize: '16px', paddingRight: '30px' }} icon={faMotorcycle}></FontAwesomeIcon>
 
                                     {shell.id_slot}
-                                </td>
+                                </TableCell>
                             ))}
-                        </tr>
-                    </tbody>
-                </table>
+                        </TableRow>
+                    </TableBody>
+                </TableContainer>
 
                 <div>Customer Area</div>
                 <table class="table border" style={{ boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px' }}>
-                    <tbody>
-                        <tr class="border">
+                    <TableBody>
+                        <TableRow class="border">
 
                             {customerSlot.slice(0, 10).map(shell => (
-                                <td
+                                <TableCell
                                     onClick={shell.status_Slots === true ? (() => togglePopupInfor(shell.id_slot, 'C', URL_Infor_C_Slot)) : massageSlot}
                                     className="border" key={shell.id}
                                     style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}
@@ -189,13 +194,13 @@ const SlotManagement = () => {
 
                                     {shell.id_slot}
 
-                                </td>
+                                </TableCell>
                             ))}
-                        </tr>
-                        <tr class="border">
+                        </TableRow>
+                        <TableRow class="border">
 
                             {customerSlot.slice(10, 20).map(shell => (
-                                <td
+                                <TableCell
                                     onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot, 'C', URL_Infor_C_Slot) : massageSlot}
                                     className="border" key={shell.id}
                                     style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}
@@ -203,13 +208,13 @@ const SlotManagement = () => {
                                     <FontAwesomeIcon style={{ fontSize: '16px', paddingRight: '30px' }} icon={faBicycle}></FontAwesomeIcon>
 
                                     {shell.id_slot}
-                                </td>
+                                </TableCell>
                             ))}
-                        </tr>
-                        <tr class="border">
+                        </TableRow>
+                        <TableRow class="border">
 
                             {customerSlot.slice(20, 30).map(shell => (
-                                <td
+                                <TableCell
                                     onClick={shell.status_Slots === true ? () => togglePopupInfor(shell.id_slot, 'C', URL_Infor_C_Slot) : massageSlot}
                                     className="border" key={shell.id}
                                     style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}
@@ -217,10 +222,10 @@ const SlotManagement = () => {
                                     <FontAwesomeIcon style={{ fontSize: '16px', paddingRight: '30px' }} icon={faMotorcycle}></FontAwesomeIcon>
 
                                     {shell.id_slot}
-                                </td>
+                                </TableCell>
                             ))}
-                        </tr>
-                    </tbody>
+                        </TableRow>
+                    </TableBody>
 
                 </table>
 
