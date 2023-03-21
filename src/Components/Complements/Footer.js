@@ -40,8 +40,25 @@ const Footer = () => {
 
                                 </div>
                             </div>
+                            
+                        <div class="col-md-4 mb-5">
+                            <h5 class="font-weight-bold text-light  mb-4">Newsletter</h5>
+                            <form action="">
+                                <div class="form-group">
+                                    <input style={{ height: '30px', marginBottom: '20px' }} type="text" class="form-control border-0 py-4" placeholder="Your Name" required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <input style={{ height: '30px', marginBottom: '20px' }} type="email" class="form-control border-0 py-4" placeholder="Your Email"
+                                        required="required" />
+                                </div>
+                                <div>
+                                    <button style={{ width: '200px', height: '38px' }} class="btn btn-primary " type="submit">Subscribe Now</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
+            
             </div>
 
         </div>
