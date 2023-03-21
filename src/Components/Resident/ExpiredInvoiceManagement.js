@@ -1,25 +1,16 @@
-
 import React, { useState, useEffect, useRef, useCallback } from "react";
-
 import AdminHeader from '../Admin/AdminPageHeader';
 import PaginationHistoryInvoice from "./PanationResidentHistoryInvoice";
 import { url_api } from "../../API/api";
 import PaginationExpiredInvoice from "./PaginationExpriedInvoice";
-
-
-
 const URL_HISTORY= url_api+"/expired/checkExpiredR/"
-
-
 const ExpiredInvoiceManagement = () => {
     const [obj, setObj] = useState([]);
     const [id, setId] = useState('');
     const [idNull, setIdNull] = useState(true);
     const [user, setUser] = useState('Resident');
     const [URLby, setURLby] = useState('');
-
     const[idUser, setIdUser] = useState(sessionStorage.getItem('id'));
-
     const handleSetBuilding = useCallback((item) => {
         setUser(item);
     }, []);
@@ -35,19 +26,11 @@ const ExpiredInvoiceManagement = () => {
             })
             .catch(error => console.error(error));
     }, []);
-
-
-
     const handleIdFilter = async (e) => {
-
         e.preventDefault();
-       
-
     }
-
     useEffect(() => {
         const navItems = document.querySelectorAll('.nav-custom-sercurity li');
-
         navItems.forEach(navItem => {
             navItem.addEventListener('click', () => {
                 // Remove the active class from all li elements
@@ -66,9 +49,6 @@ const ExpiredInvoiceManagement = () => {
 
     return (
         <div className="admin-homepage-dashboard">
-   
-           
-            
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -81,7 +61,6 @@ const ExpiredInvoiceManagement = () => {
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
-
                 </thead>
                 {idNull ?
                     (
@@ -104,10 +83,7 @@ const ExpiredInvoiceManagement = () => {
                                 </td>
                             </tr>
                         </tbody>
-
-
                     )}
-
             </table>
         </div>
     );
