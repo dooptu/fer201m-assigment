@@ -54,28 +54,33 @@ function PaginationHistoryInvoice(props) {
         const start = (currentPage - 1) * pageSize;
         const end = start + pageSize;
         return props.data.slice(start, end).map((item, index) => (
+            // <tr key={start + index}>
+            //     <td>{item.endDate}</td>
+            //     <td>{item.typeOfPayment}</td>
+            //     <td>{item.time}</td>
+            //     <td>{item.total_Of_Money} VND</td>
+            //     <td>{item.status }</td>
+            // </tr>
             <tr key={start + index}>
-                <td>{start + index + 1}</td>
-                <td>{item.id_R_Invoice}</td>
-                <td>{item.id_Payment}</td>
-                <td>{item.id_Booking}</td>
-                <td>{item.startDate}</td>
-                <td>{item.endDate}</td>
-                <td>{item.typeOfPayment}</td>
-                <td>{item.time}</td>
-                <td>{item.total_Of_Money} VND</td>
-                <td>{item.status }</td>
-               
-            </tr>
+            <td>{start + index + 1}</td>
+            <td>{item.id_R_Invoice}</td>
+            <td>{item.id_Payment}</td>
+            <td>{item.id_Booking}</td>
+            <td>{item.startDate}</td>
+            <td>{item.endDate}</td>
+            <td>{item.typeOfPayment}</td>
+            <td>{item.time}</td>
+            <td>{item.total_Of_Money} VND</td>
+            <td>{item.status }</td>
+        </tr>
         ));
     };
 
     return (
-        <>
+        <div className="">
             <tbody>{renderListItems()}</tbody>
             <tr className="pagination">{renderPageNumbers()}</tr>
-
-        </>
+        </div>
     );
 }
 

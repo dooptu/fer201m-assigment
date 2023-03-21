@@ -5,28 +5,20 @@ import { toast } from "react-toastify";
 import { faCheck, faTimes, faInfoCircle, faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import Calendar from 'react-calendar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-
 const URL = url_api + "/user/findById?id="
 const URL_UPDATE = url_api+"/security/updateCustomer_Resident?idUser=";
-
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,30}/;
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
-
 const InformationResidentManagement = () => {
-
     const [obj, setObj] = useState([]);
     const [id, setId] = useState('');
     const [validName, setValidName] = useState(false);
     const [userFocus, setUserFocus] = useState(false);
-
     const [pwd, setPwd] = useState('');
     const [validPwd, setValidPwd] = useState(false);
     const [pwdFocus, setPwdFocus] = useState(false);
-
-
     const [fullName, setFullName] = useState('');
     const [fullNameFocus, setFullNameFocus] = useState(false);
 
@@ -50,10 +42,6 @@ const InformationResidentManagement = () => {
 
     const [idUser, setIdUser] = useState(sessionStorage.getItem('id'));
     const [nameUser, setNameUser] = useState(sessionStorage.getItem('fullname'));
-
-
-
-
     useEffect(() => {
         fetch(URL + idUser)
             .then(response => response.json())
@@ -63,10 +51,6 @@ const InformationResidentManagement = () => {
             })
             .catch(error => console.error(error));
     }, []);
-
-    
-
-
 
     useEffect(() => {
         const result = USER_REGEX.test(id);
@@ -282,7 +266,6 @@ const InformationResidentManagement = () => {
                 <Calendar className={'Calendar'} />
             </div>
             <button style={{marginTop:'200px', width:'15%',marginLeft:'30.5%'}} onClick={{handleSubmit}}>Save edit</button>
-
         </div>
     );
 
