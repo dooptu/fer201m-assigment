@@ -9,7 +9,7 @@ import Slider from "../Complements/Slider"
 import Header from "../Complements/Header";
 import Footer from "../Complements/Footer";
 import './Payment.css';
-
+import {url_api} from "../../API/api";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
@@ -21,7 +21,7 @@ const ReservationComplete = () => {
 
 
     useEffect(() => {
-        fetch("")
+        fetch(url_api+"/paymentCustomer/findPayment")
             .then(response => response.json())
             .then((data) => {
                 setInvoice(data);
@@ -31,7 +31,7 @@ const ReservationComplete = () => {
     }, []);
 
     return (
-        <div>
+        <div className="body-reservation">
              <Header data={username}></Header>
             <Slider></Slider>
 
@@ -74,9 +74,7 @@ const ReservationComplete = () => {
                     <span>Time</span>
                     <i>{invoice.startDate}, {invoice.endDate}, {invoice.startTime}, {invoice.endTime}</i>
                     <br />
-                    <span>Status Invoice</span>
-                    {(invoice.status_Invoice == true) ? <i style={{color:'green'}}>Completed</i> : <i style={{color:'red'}}>Waiting to pay</i>}
-                    <br />
+                   
                     <span>Created</span>
                     <i>{sessionStorage.getItem("datebook")}, {sessionStorage.getItem("timebook")}</i>
                     <br />
@@ -85,6 +83,10 @@ const ReservationComplete = () => {
                     <br />
                     <span>Payments</span>
                     <i>{invoice.type_Of_Payment}</i>
+                    <br />
+                     <span>Status Invoice</span>
+                    {invoice.status_Invoice == true ? <i style={{color:'#199709'}}>Completed</i> : <i style={{color:'#C30000'}}>Waiting to pay</i>}
+                    <br />
 
                 </div>
 

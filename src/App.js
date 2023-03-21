@@ -23,7 +23,7 @@ import RevenueManagement from './Components/Admin/BuildingManager/RevenueManagem
 import HeadManagerHomePage from './Components/Admin/HeadManager/HeadManagerHomePage';
 
 import AccountInformation from './Components/Account/AccountInformation';
-import AllBooking from './Components/Account/AllBooking';
+
 import CancelledBooking from './Components/Account/CancelledBooking';
 import CompletedBooking from './Components/Account/CompletedBooking';
 import HistoryBooking from './Components/Account/HistoryBooking';
@@ -68,12 +68,12 @@ function App() {
           <Route path='/HeadManagerHomePage' element={<HeadManagerHomePage></HeadManagerHomePage>}></Route>
 
 
-          <Route path='/allbooking' element={<AllBooking />}></Route>
-          <Route path='/pastbooking' element={<HistoryBooking />}></Route>
+
+          {/* <Route path='/pastbooking' element={<HistoryBooking />}></Route>
           <Route path='/completedbooking' element={<CompletedBooking />}></Route>
           <Route path='/cancelledbooking' element={<CancelledBooking />}></Route>
           <Route path='/profilesetting' element={<ProfileSetting />}></Route>
-          <Route path='/account' element={<AccountInformation />}></Route>
+          <Route path='/account' element={<AccountInformation />}></Route> */}
 
           <Route path='/ResidentPage' element={<ResidentPage></ResidentPage>}></Route>
           <Route path='/CustomerPage' element={<CustomerPage></CustomerPage>}></Route>
