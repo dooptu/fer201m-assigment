@@ -136,8 +136,6 @@
     width: 420px;
     height: 570px;
     box-sizing: border-box;
-    position: absolute;
-      z-index: 0;
     top: 9%;
     left: 10%;
     background: linear-gradient(0deg, rgb(255, 255, 255), rgb(255, 255, 255)), rgb(255, 255, 255);
@@ -216,10 +214,8 @@
   }
   
   .describe-system {
-    /* position: absolute; */
     right: 10%;
     top: 35%;
-    /* z-index: 0; */
   }
   
   .describe-system h1 {
@@ -313,40 +309,8 @@
       padding: 0;
       text-decoration: none;
     }
-  
-  .logo{
-      display: block !important;
-      margin-top: -10% !important;
-      margin-left: 100px !important;
-    }
-    .logo {
-      display: none;
-    }
-  
-    .justify-content-end {
-      background-color: #2DC98A;
-      width: 100%;
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-      padding: 0 !important;
-      justify-content: flex-start;
-      margin-left: -50px !important;
-      display: none !important;
-    }
-  
-    .nav-custom li {
-      padding: 0 !important;
-    }
-  
-    .taking {
-      margin-top: 10px !important;
-    }
-  
     .headernotres{
       display: none !important;
-    }
-    .headerres{
-      display: block;
     }
   
     .nav-item-responsive {
