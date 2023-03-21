@@ -1,11 +1,8 @@
 import AdminFooter from "../AdminPageFooter";
 import AdminHeader from "../AdminPageHeader";
 import '../Admin.css'
-
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
-
-
 import SercurityManagement from "./SercurityManagement";
 import RevenueManagement from "./RevenueManagement";
 
@@ -27,11 +24,6 @@ const BuildingManagerHomePage = () => {
             console.log(item)
             return <SercurityManagement ></SercurityManagement>
         }
-
-
-
-
-
 
     };
     return (
@@ -67,10 +59,6 @@ const BuildingManagerHomePage = () => {
 
                 {select == 'Sercurity' ? <SercurityManagement ></SercurityManagement>
                     : <RevenueManagement></RevenueManagement>}
-
-
-
-
 
             </div>
             <div style={{ width: '100%', marginTop: '50px' }}>

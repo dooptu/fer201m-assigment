@@ -23,7 +23,7 @@ const PHONE_REGEX = /^[0-9]{10,12}$/;
 
 const SercurityManagement = () => {
     const [resident, setResident] = useState([]);
-    const [filteredCustomers, setFilteredCustomers] = useState([]);
+    
     const [idSearch, setIdSearch] = useState('');
     const [idNull, setIdNull] = useState(true);
     const [building, setBuilding] = useState('A');
@@ -50,15 +50,10 @@ const SercurityManagement = () => {
 
     const [email, setEmail] = useState('')
     const [validEmail, setValidEmail] = useState(false);
-    const [emailFocus, setEmailFocus] = useState(false)
 
     const [phone, setPhone] = useState('')
     const [validPhone, setValidPhone] = useState(false);
-    const [phoneFocus, setPhoneFocus] = useState(false);
 
-    const [checked, setChecked] = useState(false);
-
-    const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
 
     const [idUser, setIdUser] = useState('');
@@ -76,7 +71,7 @@ const SercurityManagement = () => {
     useEffect(() => {
         const result = USER_REGEX.test(id);
         setValidName(result);
-        // console.log(id)
+        
     }, [id])
 
     useEffect(() => {
@@ -93,7 +88,7 @@ const SercurityManagement = () => {
     useEffect(() => {
         const result = PHONE_REGEX.test(phone);
         setValidPhone(result);
-        // console.log(phone)
+        
     })
 
     useEffect(() => {
@@ -108,9 +103,7 @@ const SercurityManagement = () => {
 
 
     useEffect(() => {
-
         setBirthDay(birthday)
-        // console.log(birthday)
     }, [birthday])
 
     useEffect(() => {
@@ -121,7 +114,6 @@ const SercurityManagement = () => {
                 setGender(true)
             }
         console.log(txtGender)
-        // console.log(gender)  
     }, [txtGender])
 
     useEffect(() => {
@@ -130,14 +122,9 @@ const SercurityManagement = () => {
     }, [phone])
 
 
-
-
-
     const IsValidate = () => {
         let isproceed = true;
         let errormessage = 'Please enter the valid value!';
-
-
 
         if (!PHONE_REGEX.test(phone)) {
             isproceed = false;
@@ -147,7 +134,6 @@ const SercurityManagement = () => {
         if (!EMAIL_REGEX.test(email)) {
             isproceed = false;
             errormessage = 'Please enter the valid email!';
-
         }
 
         if (!USER_REGEX.test(id)) {
@@ -263,17 +249,17 @@ const SercurityManagement = () => {
 
     }
 
-    const handleChangeStatus = (id, status) => {
-        console.log(URL_PUT + id + '&status=' + !status)
-        fetch(URL_PUT + id + '&status=' + status, {
-            method: 'PUT'
-        }).then((res) => {
-            setSuccess(true);
-            toast.success('Change successfully.');
-        }).catch((err) => {
-            toast.error('Failed: ' + err.message);
-        });
-    }
+    // const handleChangeStatus = (id, status) => {
+    //     console.log(URL_PUT + id + '&status=' + !status)
+    //     fetch(URL_PUT + id + '&status=' + status, {
+    //         method: 'PUT'
+    //     }).then((res) => {
+    //         setSuccess(true);
+    //         toast.success('Change successfully.');
+    //     }).catch((err) => {
+    //         toast.error('Failed: ' + err.message);
+    //     });
+    // }
 
     return (
         <div className="admin-homepage-dashboard">
