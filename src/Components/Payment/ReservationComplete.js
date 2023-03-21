@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes, faInfoCircle, faUser, faClock, faArrowRight, faCashRegister, } from "@fortawesome/free-solid-svg-icons";
 import Slider from "../Complements/Slider"
 import Header from "../Complements/Header";
-import Footer from "../Complement/Footer";
+import Footer from "../Complements/Footer";
 import './Payment.css';
 import {url_api} from "../../API/api";
 

@@ -11,6 +11,8 @@ import PaymentInformation from "./PaymentInformation";
 import ReservationComplete from "./ReservationComplete";
 import './Payment.css'
 import Header from "../Complements/Header";
+import Slider from "../Complements/Slider";
+import Footer from "../Complements/Footer";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
@@ -101,7 +103,7 @@ const Reservation = () => {
         <div>
             <Header data={username}></Header>
             <Slider></Slider>
-            <ReservationDetail></ReservationDetail>
+            <Reservation></Reservation>
             <Footer></Footer>
         </div>
     )
