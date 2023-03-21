@@ -22,13 +22,6 @@ import AdminLogin from './Components/Admin/AdminLogin';
 import RevenueManagement from './Components/Admin/BuildingManager/RevenueManagement';
 import HeadManagerHomePage from './Components/Admin/HeadManager/HeadManagerHomePage';
 
-import AccountInformation from './Components/Account/AccountInformation';
-
-import CancelledBooking from './Components/Account/CancelledBooking';
-import CompletedBooking from './Components/Account/CompletedBooking';
-import HistoryBooking from './Components/Account/HistoryBooking';
-import ProfileSetting from './Components/Account/ProfileSetting';
-
 import SerHomePage from './Components/Admin/Sercurity/SerHomePage';
 import MoneyManagement from './Components/Admin/Sercurity/MoneyManagement';
 import ResidentPage from './Components/Resident/ResidentPage';
