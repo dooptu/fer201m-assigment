@@ -2,7 +2,7 @@ import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 import React from "react";
 import { Row, Col, Icon, CardTitle, Card } from "react-materialize";
-import Footer from "./Footer";
+import Footer from "../Footer";
 import "./More.css";
 
 function About() {
