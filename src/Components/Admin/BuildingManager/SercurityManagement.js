@@ -2,10 +2,7 @@ import '../Admin.css'
 import React, { useState, useEffect, useRef } from "react";
 import {url_api} from "../../../API/api";
 
-
-
-import PaginationUser from '../Sercurity/PaginationUser';
-import { ToastContainer, toast } from "react-toastify";
+import {toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PopUpEditUser from '../Sercurity/Popup/PopUpEditUser';
 import AdminHeader from '../AdminPageHeader';
@@ -249,17 +246,7 @@ const SercurityManagement = () => {
 
     }
 
-    // const handleChangeStatus = (id, status) => {
-    //     console.log(URL_PUT + id + '&status=' + !status)
-    //     fetch(URL_PUT + id + '&status=' + status, {
-    //         method: 'PUT'
-    //     }).then((res) => {
-    //         setSuccess(true);
-    //         toast.success('Change successfully.');
-    //     }).catch((err) => {
-    //         toast.error('Failed: ' + err.message);
-    //     });
-    // }
+    
 
     return (
         <div className="admin-homepage-dashboard">

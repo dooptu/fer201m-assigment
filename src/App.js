@@ -1,41 +1,41 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Home from './components/Main/Home';
-import Login from './components/Login/Login';
-import Register from './components/Registration/Register';
+import Home from './Components/Main/Home';
+import Login from './Components/Login/Login';
+import Register from './Components/Registration/Register';
 import { ToastContainer } from 'react-toastify';
-import ForgottenPwd from './components/Login/Forgotten-pwd';
-import Reservation from './components/Payment/Reservation';
-import PaymentInformation from './components/Payment/PaymentInformation';
-import Banking from './components/Payment/Banking';
-import ReservationComplete from './components/Payment/ReservationComplete';
-import ZoneDetail from './components/Zone/ZoneDetail';
+import ForgottenPwd from './Components/Login/Forgotten-pwd';
+import Reservation from './Components/Payment/Reservation';
+import PaymentInformation from './Components/Payment/PaymentInformation';
+import Banking from './Components/Payment/Banking';
+import ReservationComplete from './Components/Payment/ReservationComplete';
+import ZoneDetail from './Components/Zone/ZoneDetail';
 
-import ManagerHomePage from './components/Admin/ManagerHomepage';
-import ResidentManagement from './components/Admin/Sercurity/ResidentManagement';
-import CustomerManagement from './components/Admin/Sercurity/CustomerManagement';
-import InvoiceManagement from './components/Admin/Sercurity/InvoiceManagement';
-import Price from './components/Screen/Price';
-import SlotManagement from './components/Admin/Sercurity/SlotManagement';
-import BuildingManagerHomePage from './components/Admin/BuildingManager/BuildingManagerHomePage';
-import SercurityManagement from './components/Admin/BuildingManager/SercurityManagement';
-import AdminLogin from './components/Admin/AdminLogin';
-import RevenueManagement from './components/Admin/BuildingManager/RevenueManagement';
-import HeadManagerHomePage from './components/Admin/HeadManager/HeadManagerHomePage';
+import ManagerHomePage from './Components/Admin/ManagerHomepage';
+import ResidentManagement from './Components/Admin/Sercurity/ResidentManagement';
+import CustomerManagement from './Components/Admin/Sercurity/CustomerManagement';
+import InvoiceManagement from './Components/Admin/Sercurity/InvoiceManagement';
+import Price from './Components/Screen/Price';
+import SlotManagement from './Components/Admin/Sercurity/SlotManagement';
+import BuildingManagerHomePage from './Components/Admin/BuildingManager/BuildingManagerHomePage';
+import SercurityManagement from './Components/Admin/BuildingManager/SercurityManagement';
+import AdminLogin from './Components/Admin/AdminLogin';
+import RevenueManagement from './Components/Admin/BuildingManager/RevenueManagement';
+import HeadManagerHomePage from './Components/Admin/HeadManager/HeadManagerHomePage';
 
-import AccountInformation from './components/Account/AccountInformation';
-import AllBooking from './components/Account/AllBooking';
-import CancelledBooking from './components/Account/CancelledBooking';
-import CompletedBooking from './components/Account/CompletedBooking';
-import HistoryBooking from './components/Account/HistoryBooking';
-import ProfileSetting from './components/Account/ProfileSetting';
+import AccountInformation from './Components/Account/AccountInformation';
+import AllBooking from './Components/Account/AllBooking';
+import CancelledBooking from './Components/Account/CancelledBooking';
+import CompletedBooking from './Components/Account/CompletedBooking';
+import HistoryBooking from './Components/Account/HistoryBooking';
+import ProfileSetting from './Components/Account/ProfileSetting';
 
-import SerHomePage from './components/Admin/Sercurity/SerHomePage';
-import MoneyManagement from './components/Admin/Sercurity/MoneyManagement';
-import ResidentPage from './components/Resident/ResidentPage';
-import CustomerPage from './components/Customer/CustomerPage';
-import News from './components/Screen/News';
-import Service from './components/Screen/Service';
-import ErrorPage from './components/Error/ErrorPage';
+import SerHomePage from './Components/Admin/Sercurity/SerHomePage';
+import MoneyManagement from './Components/Admin/Sercurity/MoneyManagement';
+import ResidentPage from './Components/Resident/ResidentPage';
+import CustomerPage from './Components/Customer/CustomerPage';
+import News from './Components/Screen/News';
+import Service from './Components/Screen/Service';
+import ErrorPage from './Components/Error/ErrorPage';
 
 
 function App() {
