@@ -53,13 +53,6 @@ const RevenueManagement = () => {
 
 
 
-
-
-
-
-
-
-
         </div>
     );
 };
