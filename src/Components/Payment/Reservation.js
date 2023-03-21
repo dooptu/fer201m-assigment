@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Helmet from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
@@ -12,6 +12,9 @@ import ReservationDetail from "./ReservationDetail";
 import PaymentInformation from "./PaymentInformation";
 import ReservationComplete from "./ReservationComplete";
 import './Payment.css'
+import { Box, Button, Card, CardActions, CardContent, Container, Grid, Stack, Typography } from "@mui/material";
+import WatchLaterIcon from '@mui/icons-material/WatchLater';
+import '../Complement/Khoi/Body/Body.css'
 
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
@@ -99,7 +102,7 @@ const Reservation = () => {
             return isproceed;
     }
 
-   
+
 
 
 
@@ -107,10 +110,131 @@ const Reservation = () => {
         <div>
             <Header data={username}></Header>
             <Slider></Slider>
+            <Box sx={{ mt: '50px' }}>
+                    <Container>
+                        <Grid container spacing={8}>
+                            <Grid item xs={4}>
+                                <Card >
+                                    <CardContent>
+                                        <Typography position={'absolute'}>
+                                            2.5$ / Day
+                                        </Typography>
+                                        <Typography fontWeight={'bold'} variant="h6">
+                                            Zone A
+                                        </Typography>
+                                        <Typography gutterBottom mt={2.3} variant="body1" color='black'>
+                                            Content
+                                        </Typography>
+                                        <Typography gutterBottom variant="body2" color='black'>
+                                            <WatchLaterIcon /> Max, Duration: 4 hours
+                                        </Typography>
+
+                                    </CardContent>
+                                    <Stack direction={'row'}>
+                                        <Grid container>
+                                            <Grid item xs={4.5}>
+                                                <NavLink to={'/ZoneDetail/A'}>
+                                                    <CardActions>
+                                                        <Button fullWidth size="small">Details</Button>
+                                                    </CardActions>
+                                                </NavLink>
+                                            </Grid>
+                                            <Grid item xs={7.5}>
+                                                <CardActions>
+                                                    <NavLink  to={'/Reservation'} className='changeWidth'>
+                                                        <Button fullWidth size="small" onClick={e => setZone(e.target.value)} value='A'>Make Reservation</Button>
+                                                    </NavLink>
+                                                </CardActions>
+                                            </Grid>
+                                        </Grid>
+
+
+                                    </Stack>
+                                </Card>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Card>
+                                    <CardContent>
+                                        <Typography position={'absolute'}>
+                                            2.5$ / Day
+                                        </Typography>
+                                        <Typography fontWeight={'bold'} variant="h6">
+                                            Zone B
+                                        </Typography>
+                                        <Typography gutterBottom mt={2.3} variant="body1" color='black'>
+                                            Content
+                                        </Typography>
+                                        <Typography gutterBottom variant="body2" color='black'>
+                                            <WatchLaterIcon /> Max, Duration: 4 hours
+                                        </Typography>
+
+                                    </CardContent>
+                                    <Stack direction={'row'}>
+                                        <Grid container>
+                                        <Grid item xs={4.5}>
+                                                <NavLink to={'/ZoneDetail/B'}>
+                                                    <CardActions>
+                                                        <Button fullWidth size="small">Details</Button>
+                                                    </CardActions>
+                                                </NavLink>
+                                            </Grid>
+                                            <Grid item xs={7.5}>
+                                                <CardActions>
+                                                <NavLink  to={'/Reservation'} className='changeWidth'>
+                                                        <Button fullWidth size="small" onClick={e => setZone(e.target.value)} value='B'>Make Reservation</Button>
+                                                    </NavLink>
+                                                </CardActions>
+                                            </Grid>
+                                        </Grid>
+
+
+                                    </Stack>
+                                </Card>
+                            </Grid>
+                            <Grid item xs={4}>
+                                <Card>
+                                    <CardContent>
+                                        <Typography position={'absolute'}>
+                                            2.5$ / Day
+                                        </Typography>
+                                        <Typography fontWeight={'bold'} variant="h6">
+                                            Zone C
+                                        </Typography>
+                                        <Typography gutterBottom mt={2.3} variant="body1" color='black'>
+                                            Content
+                                        </Typography>
+                                        <Typography gutterBottom variant="body2" color='black'>
+                                            <WatchLaterIcon /> Max, Duration: 4 hours
+                                        </Typography>
+
+                                    </CardContent>
+                                    <Stack direction={'row'}>
+                                        <Grid container>
+                                        <Grid item xs={4.5}>
+                                                <NavLink to={'/ZoneDetail/C'}>
+                                                    <CardActions>
+                                                        <Button fullWidth size="small">Details</Button>
+                                                    </CardActions>
+                                                </NavLink>
+                                            </Grid>
+                                            <Grid item xs={7.5}>
+                                                <CardActions>
+                                                <NavLink  to={'/Reservation'} className='changeWidth'>
+                                                        <Button fullWidth size="small" onClick={e => setZone(e.target.value)} value='C'>Make Reservation</Button>
+                                                    </NavLink>
+                                                </CardActions>
+                                            </Grid>
+                                        </Grid>
+
+
+                                    </Stack>
+                                </Card>
+                            </Grid>
+                        </Grid>
+                    </Container>
+
+                </Box>
             <ReservationDetail></ReservationDetail>
-
-
-
             <Footer></Footer>
         </div>
     )

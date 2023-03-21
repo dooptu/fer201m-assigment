@@ -15,13 +15,17 @@
     position: relative;
 }
 
-.account_user .account_userIcon{
+.account_user .account_userIcon {
     position: absolute;
     top: -4px;
 }
-.css-1d3z3hw-MuiOutlinedInput-notchedOutline{
-    border-style: none !important;
+
+.css-k9yjdw-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root > .css-1d3z3hw-MuiOutlinedInput-notchedOutline{
+    border: none !important;
 }
+/* .css-1d3z3hw-MuiOutlinedInput-notchedOutline{
+    border-style: none !important;
+} */
 .css-hfutr2-MuiSvgIcon-root-MuiSelect-icon,
 .css-bpeome-MuiSvgIcon-root-MuiSelect-icon{
     display: none !important;

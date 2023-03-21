@@ -1,9 +1,55 @@
-import './Complement.css'
-import { useEffect, useState} from "react";
+import { Box, Button, Container, FormControl, Grid, InputLabel, MenuItem, OutlinedInput, Select, TextField, Typography } from "@mui/material";
+import { display } from "@mui/system";
+import React, { useState, useEffect } from "react";
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker, DatePickerToolbar } from '@mui/x-date-pickers/DatePicker';
+import './Khoi/Body/Body.css'
+import { DateCalendar, DateField, DateTimePicker } from "@mui/x-date-pickers";
+import { Label } from "@mui/icons-material";
+import dayjs, { Dayjs } from 'dayjs';
+
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+    PaperProps: {
+        style: {
+            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+        },
+    },
+};
+
+const names = [
+    '00:00',
+    '01:00',
+    '02:00',
+    '03:00',
+    '04:00',
+    '05:00',
+    '06:00',
+    '07:00',
+    '08:00',
+    '09:00',
+    '10:00',
+    '12:00',
+    '13:00',
+    '14:00',
+    '15:00',
+    '16:00',
+    '17:00',
+    '18:00',
+    '19:00',
+    '20:00',
+    '21:00',
+    '22:00',
+    '23:00',
+];
 
 
-const Slider = () => {
-    const [startDate, setStartDate] = useState();
+export default function Body() {
+    const[startDate,setStartDate] = useState('');
+    // const [value, setValue] = useState('');
     const [endDate, setEndDate] = useState();
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
@@ -39,104 +85,96 @@ const Slider = () => {
         console.log(JSON.stringify(regObj));
         window.location.href = '/Reservation'
     }
-
     return (
-        <div className="background" style={{ marginTop: '-11px' }}>
-            <div className="booking-in-homepage">
-                <h2>BOOKING NOW</h2>
-                <form onSubmit={handleSubmit}>
-                    <div className="class-input">
-                        <label>Start date *</label>
-                        <br />
-                        <div>
-                            <input type={'date'} style={{ width: '100%', position: 'relative' }} onChange={(e) => setStartDate(e.target.value)} ></input>
-
-                        </div>
-                    </div>
-                    <div className="class-input">
-                        <label>Start time *</label>
-                        <br />
-                        <select class="form-select" autoComplete="" onChange={(e) => setStartTime(e.target.value)}>
-                            <option>00:00</option>
-                            <option>01:00</option>
-                            <option>02:00</option>
-                            <option>03:00</option>
-                            <option>04:00</option>
-                            <option>05:00</option>
-                            <option>06:00</option>
-                            <option>07:00</option>
-                            <option>08:00</option>
-                            <option>09:00</option>
-                            <option>10:00</option>
-                            <option>12:00</option>
-                            <option>13:00</option>
-                            <option>14:00</option>
-                            <option>15:00</option>
-                            <option>16:00</option>
-                            <option>17:00</option>
-                            <option>18:00</option>
-                            <option>19:00</option>
-                            <option>20:00</option>
-                            <option>21:00</option>
-                            <option>22:00</option>
-                            <option>23:00</option>
+        <div className="backgroundImage">
+            <Container>
+                <Grid container spacing={3}>
+                    <Grid item xs={4} pb={5}>
+                        <Box sx={{ backgroundColor: 'white', borderRadius: '10px' }}>
+                            <Typography p={'24px 0px 0px 24px'} variant="h4" >
+                                BOOKING NOW
+                            </Typography>
+                            <Box onSubmit={handleSubmit} component="form" p={3}>
+                                <FormControl fullWidth>
+                                    <LocalizationProvider style={{ width: '100%' }} dateAdapter={AdapterDayjs}>
+                                        <DemoContainer components={['DatePicker']}>
+                                            <DatePicker value={startDate} onChange={(newValue) => setStartDate(newValue)} showDaysOutsideCurrentMonth label="Start date" />
+                                        </DemoContainer>
+                                    </LocalizationProvider>
+                                </FormControl>
 
 
-                        </select>
-
-                    </div>
-                    <div className="class-input">
-                        <label>End date *</label>
-                        <br />
-                        <div>
-                            <input type={'date'} style={{ width: '100%', position: 'relative' }} onChange={(e) => setEndDate(e.target.value)}  ></input>
-
-                        </div>
-                    </div>
-                    <div className="class-input">
-                        <label>End time *</label>
-                        <br />
-                        <select class="form-select" autoComplete="off" onChange={(e) => setEndTime(e.target.value)}>
-                            <option>00:00</option>
-                            <option>01:00</option>
-                            <option>02:00</option>
-                            <option>03:00</option>
-                            <option>04:00</option>
-                            <option>05:00</option>
-                            <option>06:00</option>
-                            <option>07:00</option>
-                            <option>08:00</option>
-                            <option>09:00</option>
-                            <option>10:00</option>
-                            <option>12:00</option>
-                            <option>13:00</option>
-                            <option>14:00</option>
-                            <option>15:00</option>
-                            <option>16:00</option>
-                            <option>17:00</option>
-                            <option>18:00</option>
-                            <option>19:00</option>
-                            <option>20:00</option>
-                            <option>21:00</option>
-                            <option>22:00</option>
-                            <option>23:00</option>
-                        </select>
-                    </div>
+                                <FormControl variant="filled" sx={{ borderRadius: '5px', m: '15px 0px 10px 0px' }} fullWidth>
+                                    <InputLabel id="demo-multiple-name-label">Start time</InputLabel>
+                                    <Select
+                                        id="demo-multiple-name"
+                                        value={startTime}
+                                        onChange={(e) => setStartTime(e.target.value)}
+                                        input={<OutlinedInput label="Start time" />}
+                                        MenuProps={MenuProps}
+                                    >
 
 
-                    <button style={{ color: "#fff" }} type="submit">Book now</button>
 
-                </form>
+                                        {names.map((name) => (
+                                            <MenuItem
+                                                value={name}
+                                            >
+                                                {name}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                </FormControl>
+
+                                <FormControl fullWidth>
+                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                        <DemoContainer components={['DatePicker']}>
+                                            <DatePicker value={endDate} onChange={(newValue) => setEndDate(newValue)} showDaysOutsideCurrentMonth label="End date " />
+                                        </DemoContainer>
+                                    </LocalizationProvider>
+                                </FormControl>
+
+                                <FormControl variant="filled" sx={{ borderRadius: '5px', m: '15px 0px 10px 0px' }} fullWidth>
+                                    <InputLabel id="demo-multiple-name-label">End time</InputLabel>
+                                    <Select
+                                        id="demo-multiple-name"
+                                        value={endTime}
+                                        onChange={(e) => setEndTime(e.target.value)}
+                                        input={<OutlinedInput label="End time" />}
+                                        MenuProps={MenuProps}
+                                    >
+                                        {names.map((name) => (
+                                            <MenuItem
+                                                value={name}
+                                            >
+                                                {name}
+                                            </MenuItem>
+                                        ))}
+                                    </Select>
+                                </FormControl>
+                                <Button type="submit" sx={{ m: '40px 0px 20px 0px' }} className="btn--changeColor" color="secondary" fullWidth variant="contained">Booking</Button>
+                            </Box>
+                        </Box>
+                    </Grid>
+                    <Grid item xs={8}>
+                        <Box p={'120px 30px 0px 30px'}>
+                            <Typography color={'primary'} align="justify" variant="h4" gutterBottom>
+                                Booking Vehicle
+                                <p style={{ fontSize: '80px', display: 'inline-block', border: '10px solid #2DC98A', padding: '6px' }}>P</p>
+
+                                arking Area
+                            </Typography>
+                            <Typography mt={4} color={'primary'} align="justify" variant="h6">The system provide the easily service to book a slot for your
+                                vehicle in my parking area and pay the monthly invoice
+                                if you is a resident.</Typography>
+
+                        </Box>
 
 
-            </div>
-            <div className="describe-system" >
-                <h1>Booking Vehicle Parking Area</h1>
-                <p>The system provide the easily service to book a slot for your vehicle in my parking area
-                    and pay the monthly invoice if you is a resident.</p>
-            </div>
+                    </Grid>
+                </Grid>
+
+            </Container>
         </div>
-    )
+    );
 }
-
-export default Slider;   
