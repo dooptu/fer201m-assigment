@@ -1,0 +1,192 @@
+.admin-header {
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid black;
+  margin-top: -10px;
+}
+
+.admin-header a, i {
+  color: rgb(0, 0, 0) !important;
+}
+
+/* ----------------------------ADMIN-ROLE---------------------- */
+
+.admin-role {
+  border-bottom: 1px solid #A4A5A8;
+  height: 70px;
+  width: 100%;
+  position: relative;
+
+}
+
+.admin-role div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* move the element back 50% of its own height and width */
+  /* center the text within the paragraph */
+}
+
+/* ----------------------------------------- */
+
+.admin-homepage-body {
+  position: relative;
+  
+}
+
+.admin-nav-custom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15%;
+  height: 1000px;
+  float: left;
+  background-color: #263544;
+  
+}
+
+.admin-nav-custom-title{
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid #00000047;
+  color: white !important;
+}
+
+.admin-nav-custom-title p{
+  font-size: 23px !important;
+  font-weight: bold;
+
+}
+
+.admin-nav-custom label {
+  color: white !important;
+  text-decoration: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 25px;
+  font-size: 16px !important;
+  font-weight: bold;
+  color: #2ED8B6 !important;
+
+}
+
+
+
+.admin-nav-custom li {
+  width: 100% !important;
+  list-style: none;
+  padding-left: 10% !important;
+  z-index: 100;
+  font-size: 14px !important;
+  color: #B2B9BF !important;
+
+}
+
+.navbar-nav li:active,
+.navbar-nav li.active {
+  background-color: #2DC98A;
+}
+
+.nav-custom li {
+  display: inline-block;
+  position: relative;
+  
+  
+
+}
+
+
+
+.admin-nav-custom a {
+  color: white !important;
+  text-decoration: none;
+}
+
+.admin-nav-custom li:hover {
+  transition: 1s;
+  background-color: #2DC98A;
+}
+
+.admin-nav-custom li:focus {
+  transition: 1s;
+  background-color: #2DC98A;
+}
+
+/* ----------------------------------------DASHBOARD---------------------------- */
+.admin-homepage-dashboard {
+  margin-left: 20%;
+  padding-top: 40px;
+  width: 75%;
+  right: 6%;
+  top: 0px;
+  
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  float: right;
+}
+
+.pagination li {
+  list-style: none;
+  margin: 0 10px;
+}
+
+.pagination li a {
+  display: block;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.pagination li.active a {
+  background-color: #2DC98A;
+  color: #fff;
+  border-color: #2DC98A;
+}
+
+.pagination li a:hover {
+  background-color: #2DC98A;
+}
+
+
+
+
+/* ----------------------------------------------------------------------------- */
+
+
+.not-hover:hover {
+  border: none;
+}
+
+.logo {
+  width: 150px;
+  height: 40px;
+  margin-left: 80px;
+  background-color: black;
+  float: left;
+}
+
+.footer {
+  width: 100%;
+  background-color: #2DC98A !important;
+  padding: 1%;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.footer a,
+p {
+  color: white;
+}
+
+table>thead>tr{
+  background-color: #263544;
+  color: #fff;
+}

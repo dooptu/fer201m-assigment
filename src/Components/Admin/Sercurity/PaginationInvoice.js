@@ -1,0 +1,93 @@
+import React, { useState } from "react";
+import { url_api } from "../../../API/api";
+import { toast } from "react-toastify";
+
+function PaginationInvoice(props) {
+    const user = props.user;
+    const [currentPage, setCurrentPage] = useState(1);
+    const pageSize = props.pageSize || 10; // default to 10 if not provided
+    const totalPages = Math.ceil(props.data.length / pageSize);
+
+    const handleClick = (event, page) => {
+        event.preventDefault();
+        setCurrentPage(page);
+    };
+
+    // console.log(user)
+
+    const renderPageNumbers = () => {
+        const pageNumbers = [];
+        for (let i = 1; i <= totalPages; i++) {
+            pageNumbers.push(
+                <li key={i} className={currentPage === i ? "active" : null}>
+                    <a href="#" onClick={(e) => handleClick(e, i)}>
+                        {i}
+                    </a>
+                </li>
+            );
+        }
+        return pageNumbers;
+    };
+
+    const handleChangeStatus = (id) => {
+        fetch(url_api + '/security/changeStatusInvoiceCustomer/' + id, {
+            method: 'PUT',
+            header: {
+                "Access-Control-Allow-Origin": url_api + '/security/changeStatusInvoiceCustomer/' + id,
+                "Accept": "*/*",
+                "Content-Type": "application/text",
+                "X-Requested-With": "XMLHttpRequest",
+                "Cache-Control": "no-cache",
+            },
+
+        }).then((res) => {
+
+            console.log(res);
+
+            toast.success('Register successfully.');
+
+        }).catch((err) => {
+            toast.error('Failed: ' + err.message);
+        });
+    }
+
+    const renderListItems = () => {
+        const start = (currentPage - 1) * pageSize;
+        const end = start + pageSize;
+        return props.data.slice(start, end).map((item, index) => (
+            <tr key={start + index}>
+                <td>{start + index + 1}</td>
+                <td>{user === 'Customer' ? item.id_C_Invoice : item.id_R_Invoice}</td>
+                <td>{item.id_Payment}</td>
+                <td>{user === 'Customer' ? item.id_Customer : item.id_Resident}</td>
+                <td>{item.typeOfPayment}</td>
+                
+                <td>{item.total_Of_Money.toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</td>
+                <td style={{textAlign:'center'}}>
+
+
+                    {item.status ? (<a style={{ color: '#128207', fontWeight:'bold' }}>Complete</a>) 
+                    : 
+                    (<button style={{width:'150px', fontWeight:'bold', backgroundColor:'#CE1103', border:'0'}} onClick={() => { handleChangeStatus(item.id_C_Invoice) }}> Not Complete</button>)}
+
+
+                </td>
+                <td>
+                    <form>
+                        <button style={{ border: 'none', backgroundColor: '#2DC98A', color: 'white', width: '55px', borderRadius: '2px' }}>Edit</button>
+                    </form>
+                </td>
+            </tr>
+        ));
+    };
+
+    return (
+        <>
+            <tbody>{renderListItems()}</tbody>
+            <tr className="pagination">{renderPageNumbers()}</tr>
+
+        </>
+    );
+}
+
+export default PaginationInvoice;
