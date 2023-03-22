@@ -363,7 +363,7 @@ const ReservationDetail = () => {
             <div className="table-responsive  align-items-center justify-content-center zone-reservation" style={{ width: '30.1%' }}>
                 <h5>AVAILABILITY</h5>
                 <div style={{ marginTop: '50px', fontWeight: 'bold' }}>Resident Area</div>
-                <TableContainer className="table border" >
+                <table className="table border" >
                     <TableBody>
                         <TableRow class="border" style={{}}>
                             {residentSlot.slice(0, 10).map(shell => (
@@ -397,7 +397,7 @@ const ReservationDetail = () => {
 
                     </TableBody>
 
-                </TableContainer>
+                </table>
                 <div style={{ backgroundColor: 'white', textAlign: 'left' }}>
                     <FontAwesomeIcon style={{ rotate: '180px', marginRight: '20px' }} icon={faRoad}></FontAwesomeIcon>
                     <span>Road</span>

@@ -135,7 +135,7 @@ const SlotManagement = () => {
 
             <div class="table-responsive  align-items-center justify-content-center">
                 <div>Resident Area</div>
-                <TableContainer class="table border" style={{ boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px' }}>
+                <table class="table border" style={{ boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px' }}>
                     <TableBody>
                         <TableRow class="border" style={{ boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px' }}>
                             {residentSlot.slice(0, 10).map(shell => (
@@ -177,7 +177,7 @@ const SlotManagement = () => {
                             ))}
                         </TableRow>
                     </TableBody>
-                </TableContainer>
+                </table>
 
                 <div>Customer Area</div>
                 <table class="table border" style={{ boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px' }}>
