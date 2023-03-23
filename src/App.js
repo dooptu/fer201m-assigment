@@ -60,7 +60,7 @@ function App() {
           <Route path='/RevenueManagement' element={<RevenueManagement></RevenueManagement>}></Route>
           <Route path='/MoneyManagement' element={<MoneyManagement></MoneyManagement>}></Route>
           <Route path='/HeadManagerHomePage' element={<HeadManagerHomePage></HeadManagerHomePage>}></Route>
-          <Route path='/about' element={<HeadManagerHomePage></HeadManagerHomePage>}></Route>
+          <Route path='/about' element={<About></About>}></Route>
 
 
 
