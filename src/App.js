@@ -29,6 +29,7 @@ import CustomerPage from './Components/Customer/CustomerPage';
 import News from './Components/Screen/News';
 import Service from './Components/Screen/Service';
 import ErrorPage from './Components/Error/ErrorPage';
+import About from './Components/Complements/About';
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
           <Route path='/RevenueManagement' element={<RevenueManagement></RevenueManagement>}></Route>
           <Route path='/MoneyManagement' element={<MoneyManagement></MoneyManagement>}></Route>
           <Route path='/HeadManagerHomePage' element={<HeadManagerHomePage></HeadManagerHomePage>}></Route>
+          <Route path='/about' element={<HeadManagerHomePage></HeadManagerHomePage>}></Route>
 
 
 
