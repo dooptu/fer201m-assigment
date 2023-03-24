@@ -8,6 +8,7 @@ import Helmet from "react-helmet";
 import { HelmetProvider } from "react-helmet-async";
 import { url_api } from "../../API/api"
 import PopUpLoginGG from "./PopUp/PopUpLoginGG";
+import './Login.css'
 
 // const LOGIN_URL = "https://0c1a-42-118-112-251.ap.ngrok.io/ParkingManagement/api/user/getUser/";
 const LOGIN_URL_GG = url_api + "/loginGoogle"
@@ -224,7 +225,7 @@ const Login = () => {
                         <BackgroundCommon></BackgroundCommon>
                         <h2>User Log in</h2>
                         <span style={{ marginBottom: "40px", display: "block" }}>Log in to your Eparking account.</span>
-                        <button onClick={() => { handleGoogle() }} className="google" style={{ marginBottom: "10px" }} type="submit"> <img style={{ width: "30px", position: "absolute", left: "20px", marginRight: "30px" }} src='./assets/img/Google_Logo.png' /> Login with Google</button>
+                        <button onClick={() => { handleGoogle() }} className="google" style={{ marginBottom: "10px", backgroundColor:'white' }} type="submit"> <img style={{ width: "30px", position: "absolute", left: "20px", marginRight: "30px" }} src='./assets/img/Google_Logo.png' /> Login with Google</button>
                         <button className="google" style={{ marginTop: "0px" }} type="submit"> <img style={{ width: "30px", position: "absolute", left: "20px", marginRight: "30px" }} src='./assets/img/facebook.png' /> Login with Facebook</button>
                         <br />
                         <div className="dash-or"><span>Or</span></div>

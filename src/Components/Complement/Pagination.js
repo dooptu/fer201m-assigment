@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+
+
 function Pagination(props) {
     const [currentPage, setCurrentPage] = useState(1);
     const pageSize = props.pageSize || 10; // default to 10 if not provided
@@ -39,7 +41,7 @@ function Pagination(props) {
                 <td style={{ color: item.status_Account === true ? '#118408' : '#E23F31', fontWeight: 'bold' }}>{item.status_Account === true ? 'Active' : 'Ban'}</td>
                 <td>
                     <form>
-                        <button style={{border:'none', backgroundColor:'#2DC98A', color:'white', width:'55px', borderRadius:'2px'}}>Edit</button>
+                        <button className="edit-save" style={{border:'none', backgroundColor:'#2DC98A', color:'white', width:'55px', borderRadius:'2px'}}>Edit</button>
                     </form>
                 </td>
             </tr>
