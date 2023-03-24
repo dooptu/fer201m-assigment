@@ -22,6 +22,7 @@ import AdminLogin from './components/Admin/AdminLogin';
 import RevenueManagement from './components/Admin/BuildingManager/RevenueManagement';
 import HeadManagerHomePage from './components/Admin/HeadManager/HeadManagerHomePage';
 
+<<<<<<< HEAD
 import AccountInformation from './components/Account/AccountInformation';
 import AllBooking from './components/Account/AllBooking';
 import CancelledBooking from './components/Account/CancelledBooking';
@@ -36,6 +37,16 @@ import CustomerPage from './components/Customer/CustomerPage';
 import News from './components/Screen/News';
 import Service from './components/Screen/Service';
 import ErrorPage from './components/Error/ErrorPage';
+=======
+import SerHomePage from './Components/Admin/Sercurity/SerHomePage';
+import MoneyManagement from './Components/Admin/Sercurity/MoneyManagement';
+import ResidentPage from './Components/Resident/ResidentPage';
+import CustomerPage from './Components/Customer/CustomerPage';
+import News from './Components/Screen/News';
+import Service from './Components/Screen/Service';
+import ErrorPage from './Components/Error/ErrorPage';
+import About from './Components/Complements/About';
+>>>>>>> 595fe0fc36921e584d161318a67d19eeb15a15f2
 
 
 function App() {
@@ -66,6 +77,7 @@ function App() {
           <Route path='/RevenueManagement' element={<RevenueManagement></RevenueManagement>}></Route>
           <Route path='/MoneyManagement' element={<MoneyManagement></MoneyManagement>}></Route>
           <Route path='/HeadManagerHomePage' element={<HeadManagerHomePage></HeadManagerHomePage>}></Route>
+          <Route path='/about' element={<About></About>}></Route>
 
 
           <Route path='/allbooking' element={<AllBooking />}></Route>
