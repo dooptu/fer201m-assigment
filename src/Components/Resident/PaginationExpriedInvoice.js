@@ -12,6 +12,8 @@ function PaginationExpiredInvoice(props) {
         event.preventDefault();
         setCurrentPage(page);
     };
+
+
     const renderPageNumbers = () => {
         const pageNumbers = [];
         for (let i = 1; i <= totalPages; i++) {
@@ -52,10 +54,6 @@ function PaginationExpiredInvoice(props) {
         const start = (currentPage - 1) * pageSize;
         const end = start + pageSize;
         return props.data.slice(start, end).map((item, index) => (
-            // <tr key={start + index}>
-            //     <td>{start + index + 1}</td>
-            //     <td>{item.id_Payment}</td>
-            // </tr>
             <tr key={start + index}>
                 <td>{start + index + 1}</td>
                 <td>{item.id_Payment}</td>

@@ -5,7 +5,9 @@
 }
 
 
-/* --------------------------REGISTER-------------------------- */
+
+
+/* --------------------------REGISTER------------------------- */
 .container-register {
   height: 790px;
   position: relative;
@@ -120,20 +122,25 @@
 
 #fullname {
   width: 420px;
+
 }
 
 #password {
   width: 200px;
+
 }
 
 #confirm_password {
   width: 200px;
+
 }
 
 #birthday {
   width: 200px;
   color: #757575;
 }
+
+
 
 input[type='radio']:checked:after {
   visibility: visible;
@@ -167,6 +174,7 @@ input[type='radio']:checked:after {
   margin-left: -30px;
 }
 
+
 #email {
   width: 420px;
 }
@@ -181,6 +189,7 @@ input[type='radio']:checked:after {
   margin-left: 20px;
   outline: none;
   box-shadow: none;
+
 }
 
 .checkbox p {
@@ -202,6 +211,7 @@ input[type='radio']:checked:after {
   border: 1px solid #2DC98A;
   color: #fff;
 }
+
 
 .btn-already-res {
   background-color: #fff !important;
@@ -226,7 +236,7 @@ input[type='radio']:checked:after {
   display: none;
 }
 
-@media screen and (max-width:390px) {
+@media screen and (max-width:400px) and (min-width: 100px) {
   * {
     margin: 0;
     padding: 0;
@@ -256,3 +266,4 @@ input[type='radio']:checked:after {
     margin-left: 0;
   }
 }
+

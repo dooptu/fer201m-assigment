@@ -1,0 +1,28 @@
+
+.body-link {
+    width: 25%;
+    height: max-content;
+    background-color: #263544;
+    margin-left: -20px;
+}
+
+.body-link a {
+    color: white;
+    text-decoration: none;
+}
+
+.body-link a li {
+    margin-bottom: 10%;
+    margin-left: 15px;
+    list-style: none;
+    padding: 10px 10px;
+}
+
+.active li{
+    background-color: #2dc98a;
+    padding: 10px 10px;
+}
+
+.logo:hover {
+    color: #2dc98a !important;
+}

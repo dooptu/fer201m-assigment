@@ -6,9 +6,9 @@ import { HelmetProvider } from "react-helmet-async";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //  import visa from "D:/WorkSpace/React_projects/SWP/ParkingManagement/public/assets/img/visa"
 import { faCheck, faTimes, faInfoCircle, faUser, faClock, faArrowRight, faCashRegister, } from "@fortawesome/free-solid-svg-icons";
-import Slider from "../Complements/Slider"
-import Header from "../Complements/Header";
-import Footer from "../Complements/Footer";
+import Slider from "../Complement/Slider"
+import Header from "../Complement/Header";
+import Footer from "../Complement/Footer";
 import ReservationDetail from "./ReservationDetail";
 import './Payment.css'
 import { url_api } from "../../API/api";
@@ -42,7 +42,7 @@ const PaymentInformation = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        alert('Do you want to choose: ' + type + ' is type of payment?')
+        window.confirm('Do you want to choose: ' + type + ' is type of payment?')
         console.log(bookingInf.id_Booking);
         console.log(type)
         sessionStorage.setItem("idbooking", bookingInf.id_Booking);
@@ -96,7 +96,7 @@ const PaymentInformation = () => {
     const handleCancel = async (e) => {
         e.preventDefault();
         
-        window.confirm('Do you want to Cancel your Reservation? You will be banned after canceling more 5 times')
+        alert('Do you want to Cancel your Reservation? You will be banned after canceling more 5 times')
         const id_booking = bookingInf.id_Booking;
         const id_Customer = username;
         const id_Building = obj.id_Building;
@@ -223,7 +223,7 @@ const PaymentInformation = () => {
                     <i>{sessionStorage.getItem("datebook")}, {sessionStorage.getItem("timebook")}</i>
                     <br />
                     <span>Price</span>
-                    <i>{bookingInf.total_Of_Money} VND</i>
+                    <i>{ Number(bookingInf.total_Of_Money).toLocaleString(undefined, { minimumFractionDigits: 2 })} VND</i>
                     <br />
                     <span>Status</span>
                     <i style={{ color: '#C30000' }}>Not completed</i>

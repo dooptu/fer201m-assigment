@@ -6,16 +6,11 @@ import { faArrowRight, faRoad, faExit } from "@fortawesome/free-solid-svg-icons"
 import { faCarRear, faBicycle, faMotorcycle } from "@fortawesome/free-solid-svg-icons";
 import './Payment.css';
 import { url_api } from "../../API/api";
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/;
 const PHONE_REGEX = /^[0-9]{10,12}$/;
 const ReservationDetail = () => {
-    const [starTableCellate, setStarTableCellate] = useState(sessionStorage.getItem("starTableCellate"));
+    const [startDate, setStartDate] = useState(sessionStorage.getItem("startDate"));
     const [endDate, setEndDate] = useState(sessionStorage.getItem("endDate"));
     const [startTime, setStartTime] = useState(sessionStorage.getItem("startTime"));
     const [endTime, setEndTime] = useState(sessionStorage.getItem("endTime"));
@@ -31,9 +26,9 @@ const ReservationDetail = () => {
     const [logined, setLogined] = useState(sessionStorage.getItem("username"))
 
     useEffect(() => {
-        setStarTableCellate(starTableCellate);
+        setStartDate(startDate);
 
-    }, [starTableCellate]);
+    }, [startDate]);
 
     useEffect(() => {
         setEndDate(endDate);
@@ -117,13 +112,13 @@ const ReservationDetail = () => {
     const handleSubmit = async (e) => {
 
         if (logined != null || logined != '') {
-            e.prevenTableCellefault();
+            e.preventDefault();
             const id_Building = zone;
             const type_Of_Vehicle = typeOfVehicle;
             const id_C_Slot = slot;
             const fullname = fullName;
             const idUser = sessionStorage.getItem("id");
-            const obj = { idUser, starTableCellate, endDate, startTime, endTime, id_Building, type_Of_Vehicle, id_C_Slot, fullname, email, phone }
+            const obj = { idUser, startDate, endDate, startTime, endTime, id_Building, type_Of_Vehicle, id_C_Slot, fullname, email, phone }
             console.log(obj)
             fetch(url_api + "/bookingCustomer/save", {
                 method: 'POST',
@@ -132,16 +127,16 @@ const ReservationDetail = () => {
                     "Accept": "*/*",
                     "Content-Type": "application/json",
                     "X-Requested-With": "XMLHttpRequest",
-                    "Cache-ConTableRowol": "no-cache",
+                    "Cache-Control": "no-cache",
 
                 },
-                body: JSON.sTableRowingify(obj)
+                body: JSON.stringify(obj)
             }).then((res) => {
 
                 console.log(obj)
-                sessionStorage.setItem("obj", JSON.sTableRowingify(obj));
-                const currenTableCellate = new Date(Date.now());
-                const formattedDate = currenTableCellate.toISOSTableRowing().subsTableRow(0, 10);
+                sessionStorage.setItem("obj", JSON.stringify(obj));
+                const currentDate = new Date(Date.now());
+                const formattedDate = currentDate.toISOString().substr(0, 10);
                 const now = new Date();
                 const hours = now.getHours();
                 const minutes = now.getMinutes();
@@ -177,14 +172,14 @@ const ReservationDetail = () => {
                 </div>
 
                 <FontAwesomeIcon style={{ fontSize: '25px', marginTop: '-30px' }} icon={faArrowRight}></FontAwesomeIcon>
-                <Link style={{ texTableCellecoration: 'none' }} to={'/PaymentInformation'}>
+                <Link style={{ textDecoration: 'none' }} to={'/PaymentInformation'}>
                     <div className="circle">
                         <div className="col-lg-3 rounded-circle"><span>2</span></div>
                         <h6 style={{ display: 'block', width: '80px', textAlign: 'center', marginLeft: '10px' }}>Payment Accuracy</h6>
                     </div>
                 </Link>
                 <FontAwesomeIcon style={{ fontSize: '25px', marginTop: '-30px' }} icon={faArrowRight}></FontAwesomeIcon>
-                <Link style={{ texTableCellecoration: 'none' }} to={'/ReservationComplete'}>
+                <Link style={{ textDecoration: 'none' }} to={'/ReservationComplete'}>
                     <div className="circle">
                         <div className="col-lg-3 rounded-circle" ><span>3</span></div>
                         <h6 style={{ display: 'block', width: '80px', textAlign: 'center', marginLeft: '10px' }}>Reservation Completed</h6>
@@ -198,7 +193,7 @@ const ReservationDetail = () => {
                         <label>Start date *</label>
                         <br />
                         <div>
-                            <input type={'date'} placeholder="User Name" style={{ width: '100%', position: 'relative' }} onChange={(e) => setStarTableCellate(e.target.value)} value={starTableCellate} ></input>
+                            <input type={'date'} placeholder="User Name" style={{ width: '100%', position: 'relative' }} onChange={(e) => setStartDate(e.target.value)} value={startDate} ></input>
 
                         </div>
                     </div>
@@ -360,42 +355,42 @@ const ReservationDetail = () => {
                 </div>
             </div>
 
-            <div className="table-responsive  align-items-center justify-content-center zone-reservation" style={{ width: '30.1%' }}>
+            <div className="table-responsive  align-items-center justify-content-center zone-reservation" style={{ width: '30%' }}>
                 <h5>AVAILABILITY</h5>
                 <div style={{ marginTop: '50px', fontWeight: 'bold' }}>Resident Area</div>
                 <table className="table border" >
-                    <TableBody>
-                        <TableRow class="border" style={{}}>
+                    <tbody>
+                        <tr class="border" style={{}}>
                             {residentSlot.slice(0, 10).map(shell => (
-                                <TableCell className="border" key={shell.id} style={{ fontSize: '15px', width: '10px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                <td className="border" key={shell.id} style={{ fontSize: '15px', width: '10px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
                                     <FontAwesomeIcon style={{ fontSize: '13px', paddingRight: '10px' }} icon={faCarRear}></FontAwesomeIcon>
 
                                     {shell.id_slot}
-                                </TableCell>
+                                </td>
                             ))}
-                        </TableRow>
-                        <TableRow class="border">
+                        </tr>
+                        <tr class="border">
 
                             {residentSlot.slice(10, 20).map(shell => (
-                                <TableCell className="border" key={shell.id} style={{ fontSize: '15px', width: '10px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                <td className="border" key={shell.id} style={{ fontSize: '15px', width: '10px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
                                     <FontAwesomeIcon style={{ fontSize: '13px', paddingRight: '0px' }} icon={faBicycle}></FontAwesomeIcon>
 
                                     {shell.id_slot}
-                                </TableCell>
+                                </td>
                             ))}
-                        </TableRow>
-                        <TableRow class="border">
+                        </tr>
+                        <tr class="border">
 
                             {residentSlot.slice(20, 30).map(shell => (
-                                <TableCell className="border" key={shell.id} style={{ fontSize: '15px', width: '10px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                <td className="border" key={shell.id} style={{ fontSize: '15px', width: '10px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
                                     <FontAwesomeIcon style={{ fontSize: '13px', paddingRight: '0px' }} icon={faMotorcycle}></FontAwesomeIcon>
 
                                     {shell.id_slot}
-                                </TableCell>
+                                </td>
                             ))}
-                        </TableRow>
+                        </tr>
 
-                    </TableBody>
+                    </tbody>
 
                 </table>
                 <div style={{ backgroundColor: 'white', textAlign: 'left' }}>
@@ -405,53 +400,53 @@ const ReservationDetail = () => {
 
                 <div style={{ marginTop: '10px', fontWeight: 'bold' }}>Customer Area</div>
                 <table class="table border">
-                    <TableBody>
-                        <TableRow class="border">
+                    <tbody>
+                        <tr class="border">
 
                             {customerSlot.slice(0, 10).map(shell => (
-                                <TableCell className="border" key={shell.id} style={{ fontSize: '15px', width: '10px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                <td className="border" key={shell.id} style={{ fontSize: '15px', width: '10px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
                                     <FontAwesomeIcon style={{ fontSize: '13px', paddingRight: '10px' }} icon={faCarRear}></FontAwesomeIcon>
 
                                     {shell.id_slot}
-                                </TableCell>
+                                </td>
                             ))}
-                        </TableRow>
-                        <TableRow class="border">
+                        </tr>
+                        <tr class="border">
 
                             {customerSlot.slice(10, 20).map(shell => (
-                                <TableCell className="border" key={shell.id} style={{ fontSize: '15px', width: '10px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                <td className="border" key={shell.id} style={{ fontSize: '15px', width: '10px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
                                     <FontAwesomeIcon style={{ fontSize: '13px', paddingRight: '0px' }} icon={faBicycle}></FontAwesomeIcon>
 
                                     {shell.id_slot}
-                                </TableCell>
+                                </td>
                             ))}
-                        </TableRow>
-                        <TableRow class="border">
+                        </tr>
+                        <tr class="border">
 
                             {customerSlot.slice(20, 30).map(shell => (
-                                <TableCell className="border" key={shell.id} style={{ fontSize: '15px', width: '10px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                <td className="border" key={shell.id} style={{ fontSize: '15px', width: '10px', backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
                                     <FontAwesomeIcon style={{ fontSize: '13px', paddingRight: '0px' }} icon={faMotorcycle}></FontAwesomeIcon>
 
                                     {shell.id_slot}
-                                </TableCell>
+                                </td>
                             ))}
-                        </TableRow>
-                    </TableBody>
+                        </tr>
+                    </tbody>
 
                 </table>
 
                 <table class="table" style={{ marginTop: '60px', boxShadow: 'none' }}>
-                    <TableRow className="">
-                        <TableCell style={{ width: '40px', height: '40px', backgroundColor: 'rgba(250, 104, 104, 0.874)', marginRight: '10px' }}>
+                    <tr className="">
+                        <td style={{ width: '40px', height: '40px', backgroundColor: 'rgba(250, 104, 104, 0.874)', marginRight: '10px' }}>
                             <span>Slot</span>
-                        </TableCell>
-                        <TableCell style={{ paddingLeft: '10px' }}>   Booked</TableCell>
+                        </td>
+                        <td style={{ paddingLeft: '10px' }}>   Booked</td>
 
-                        <TableCell style={{ width: '40px', height: '40px', border: '1px solid black', marginRight: '10px' }}>
+                        <td style={{ width: '40px', height: '40px', border: '1px solid black', marginRight: '10px' }}>
                             <span>   Slot</span>
-                        </TableCell>
-                        <TableCell style={{ paddingLeft: '10px' }}>Null</TableCell>
-                    </TableRow>
+                        </td>
+                        <td style={{ paddingLeft: '10px' }}>Null</td>
+                    </tr>
                 </table>
             </div>
 

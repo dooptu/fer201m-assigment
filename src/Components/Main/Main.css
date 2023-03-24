@@ -72,7 +72,7 @@
 }
 
 .background {
-  background-image: url('../../../public/assets/img/backgr7.jpg');
+  background-image: url('/public/assets/img/backgr7.jpg');
   background-repeat: no-repeat;
   height: 700px;
   margin-top: 10%;
@@ -191,7 +191,7 @@
 
 .zone-area-homepage .card {
   width: 22%;
-  background-image: url('../../../public/assets/img/parking-icon.png');
+  background-image: url('/public/assets/img/parking-icon.png');
   background-size: 25%;
   background-repeat: no-repeat;
   background-position: right;
@@ -284,7 +284,7 @@
 }
 
 .img-gate-homepage {
-  background-image: url('../../../public/assets/img/gate.jpg');
+  background-image: url('/public/assets/img/gate.jpg');
   ;
   width: 100%;
   height: 100%;

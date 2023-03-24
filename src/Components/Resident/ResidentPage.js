@@ -7,7 +7,8 @@ import './Resident.css';
 import HistoryResidentInvoiceManagement from "./HistoryResidentInvoiceManagement";
 import ExpiredInvoiceManagement from "./ExpiredInvoiceManagement";
 import InformationResidentManagement from "./InformationResidentManagement";
-import UserHeader from "../Complements/HeaderUser";
+import UserHeader from "../Complement/HeaderUser";
+
 
 
 const ResidentPage = () => {

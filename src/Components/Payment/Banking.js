@@ -7,15 +7,19 @@ import { json, Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import './Payment.css';
-import {url_api} from "../../API/api";
+import { url_api } from "../../API/api";
 
 const Banking = () => {
     const [name, setName] = useState('');
     const [cardNum, setcardNum] = useState('');
     const [expiry, setExpiry] = useState('');
     const [verification, setVerification] = useState('');
-   
-    
+    const [id, setId] = useState(sessionStorage.getItem("username"))
+    const [invoice, setInvoice] = useState([]);
+    const [flag, setFlag] = useState(false);
+    console.log('username: ' + id)
+
+
 
     useEffect(() => {
         setName(name);
@@ -33,14 +37,14 @@ const Banking = () => {
         setVerification(verification);
     }, [verification]);
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         //type of payment vs idbooking
         const id_Booking = sessionStorage.getItem("idbooking");
         const type_Of_Payment = sessionStorage.getItem("typePayment");
         const id_Building = sessionStorage.getItem("idbuilding");
         const regObj = { id_Booking, type_Of_Payment, id_Building }
-        fetch(url_api+"/paymentCustomer/save", {
+        fetch(url_api + "/paymentCustomer/save", {
 
             method: 'POST',
             header: {
@@ -70,12 +74,17 @@ const Banking = () => {
             const currentTime = `${hours}:${minutes}:${seconds}`;
             sessionStorage.setItem("datebook", formattedDate);
             sessionStorage.setItem("timebook", currentTime)
-            window.location.href = '/ReservationComplete'
             toast.success('Pay successfully.');
+            window.location.href = '/ReservationComplete'
             
+
         }).catch((err) => {
             toast.error('Failed: ' + err.message);
         });
+
+        
+
+        
     }
 
 
@@ -139,9 +148,9 @@ const Banking = () => {
                 <form onSubmit={handleSubmit} className="col-lg-6  class-input">
 
                     <div>
-                        
-                            <button type={'submit'} style={{ width: '100%', height: '50px', borderRadius: '5px', backgroundColor: '#2DC98A', border: '#2DC98A' }} >Submit</button>
-                        
+
+                        <button type={'submit'} style={{ width: '100%', height: '50px', borderRadius: '5px', backgroundColor: '#2DC98A', border: '#2DC98A' }} >Submit</button>
+
 
                     </div>
                 </form>

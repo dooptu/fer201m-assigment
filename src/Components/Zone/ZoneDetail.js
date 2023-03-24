@@ -1,9 +1,11 @@
+
 import { useParams } from "react-router-dom";
+//  import visa from "D:/WorkSpace/React_projects/SWP/ParkingManagement/public/assets/img/visa"
 import './Zone.css'
 
-import Slider from "../Complements/Slider"
-import Header from "../Complements/Header";
-import Footer from "../Complements/Footer";
+import Slider from "../Complement/Slider"
+import Header from "../Complement/Header";
+import Footer from "../Complement/Footer";
 
 import ZoneA from "./ZoneA";
 import ZoneB from "./ZoneB";
@@ -25,6 +27,7 @@ const ZoneDetail = () => {
                         <br />
                         <div>
                             <input type={'date'} style={{ width: '120%', position: 'relative' }}  ></input>
+
                         </div>
                     </div>
                     <div className="class-input">

@@ -4,34 +4,23 @@ import './Zone.css';
 import { url_api } from "../../API/api";
 import { faCarRear, faRoad, faExit, faBicycle, faMotorcycle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import ReactJsAlert from "reactjs-alert"
-
-
 function ZoneA() {
     const [shells, setShells] = useState([]);
     const [shellsR, setShellsR] = useState([]);
-    
+
     useEffect(() => {
         fetch(url_api + '/present_slot/findAll/A')
             .then(response => response.json())
             .then((data) => {
                 setShells(data)
-                
                 // console.log(data)
             })
-
             .catch(error => console.error(error));
     }, []);
     const residentSlot = shells.filter(slot => slot.id_slot.startsWith('R'));
     const customerSlot = shells.filter(slot => slot.id_slot.startsWith('C'));
     return (
         <div>
-            
             <form onSubmit={'handleSubmit'}>
                 <div className="zone-detail">
                     <p style={{ float: 'left' }}>
@@ -57,63 +46,64 @@ function ZoneA() {
                     </p>
                     <div class="table-responsive  align-items-center justify-content-center">
                         <div>Resident Area</div>
-                        <TableContainer class="table border" style={{ boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px' }}>
-                            <TableBody>
-                                <TableRow class="border">
+                        <table class="table border" style={{ boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px' }}>
+                            <tbody>
+                                <tr class="border">
                                     {residentSlot.slice(0, 10).map(shell => (
-                                        <TableCell className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
                                             <FontAwesomeIcon style={{ fontSize: '16px', paddingRight: '30px' }} icon={faCarRear}></FontAwesomeIcon>
                                             {shell.id_slot}
-                                        </TableCell>
+                                        </td>
                                     ))}
-                                </TableRow>
-                                <TableRow class="border">
+                                </tr>
+                                <tr class="border">
                                     {residentSlot.slice(10, 20).map(shell => (
-                                        <TableCell className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
                                             <FontAwesomeIcon style={{ fontSize: '16px', paddingRight: '30px' }} icon={faBicycle}></FontAwesomeIcon>
                                             {shell.id_slot}
-                                        </TableCell>
+                                        </td>
                                     ))}
-                                </TableRow>
-                                <TableRow class="border">
+                                </tr>
+                                <tr class="border">
+
                                     {residentSlot.slice(20, 30).map(shell => (
-                                        <TableCell className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
                                             <FontAwesomeIcon style={{ fontSize: '16px', paddingRight: '30px' }} icon={faMotorcycle}></FontAwesomeIcon>
                                             {shell.id_slot}
-                                        </TableCell>
+                                        </td>
                                     ))}
-                                </TableRow>
-                            </TableBody>
-                        </TableContainer>
+                                </tr>
+                            </tbody>
+                        </table>
                         <div>Customer Area</div>
-                        <TableContainer class="table border" style={{ boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px' }}>
-                            <TableBody>
-                                <TableRow class="border">
+                        <table class="table border" style={{ boxShadow: 'rgba(0, 0, 0, 0.14) 0px 3px 8px' }}>
+                            <tbody>
+                                <tr class="border">
                                     {customerSlot.slice(0, 10).map(shell => (
-                                        <TableCell className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
                                             <FontAwesomeIcon style={{ fontSize: '16px', paddingRight: '30px' }} icon={faCarRear}></FontAwesomeIcon>
                                             {shell.id_slot}
-                                        </TableCell>
+                                        </td>
                                     ))}
-                                </TableRow>
-                                <TableRow class="border">
+                                </tr>
+                                <tr class="border">
                                     {customerSlot.slice(10, 20).map(shell => (
-                                        <TableCell className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
                                             <FontAwesomeIcon style={{ fontSize: '16px', paddingRight: '30px' }} icon={faBicycle}></FontAwesomeIcon>
                                             {shell.id_slot}
-                                        </TableCell>
+                                        </td>
                                     ))}
-                                </TableRow>
-                                <TableRow class="border">
+                                </tr>
+                                <tr class="border">
                                     {customerSlot.slice(20, 30).map(shell => (
-                                        <TableCell className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
+                                        <td className="border" key={shell.id} style={{ backgroundColor: shell.status_Slots === true ? 'rgba(250, 104, 104, 0.874)' : 'white' }}>
                                             <FontAwesomeIcon style={{ fontSize: '16px', paddingRight: '30px' }} icon={faMotorcycle}></FontAwesomeIcon>
                                             {shell.id_slot}
-                                        </TableCell>
+                                        </td>
                                     ))}
-                                </TableRow>
-                            </TableBody>
-                        </TableContainer>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <button style={{ width: '30%', height: '50px', borderRadius: '5px', color: "#fff", marginLeft: '35%', backgroundColor: '#2DC98A', border: '#2DC98A' }} type="submit">Book now</button>
                 </div>
