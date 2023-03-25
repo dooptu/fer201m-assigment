@@ -15,7 +15,7 @@
   
   .container-background {
     position: absolute;
-    right: -1100px !important;
+    right: 900px !important;
     top: -80px;
     width: 500px;
     height: 100%;
@@ -24,11 +24,12 @@
   
   .container-background>img {
     position: absolute;
+    right: 200px !important;
   }
   
-  .container-background>img>img {
+  .container-background>img {
     margin-top: -10px;
-    margin-left: 150px;
+    margin-left: -400px;
   
   }
   
